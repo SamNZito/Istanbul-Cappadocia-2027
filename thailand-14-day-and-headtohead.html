@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thailand at 14 Days — And The Head-to-Head</title>
+<style>
+  :root{
+    --ink:#16130f;--ink2:#494139;--muted:#7d7268;--line:#e2dbd1;
+    --paper:#fbf8f4;--card:#fff;--accent:#9c3b1f;--accent2:#1f5c4d;--gold:#8a6a1f;--blue:#3d4a63;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:ui-serif,Georgia,'Iowan Old Style','Times New Roman',serif;font-size:16.5px;line-height:1.62}
+  .wrap{max-width:940px;margin:0 auto;padding:56px 28px 90px}
+  header.top{border-bottom:3px solid var(--ink);padding-bottom:22px;margin-bottom:40px}
+  .kicker{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;
+    font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  h1{font-size:44px;line-height:1.08;margin:12px 0 10px;letter-spacing:-.02em}
+  .sub{color:var(--ink2);font-size:18px;max-width:62ch;margin:0}
+  .meta{font-family:ui-sans-serif,system-ui,sans-serif;font-size:12px;color:var(--muted);margin-top:16px;letter-spacing:.04em}
+  h2{font-size:15px;font-family:ui-sans-serif,system-ui,sans-serif;font-weight:700;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+    margin:56px 0 6px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  h3{font-size:24px;margin:34px 0 8px;letter-spacing:-.01em}
+  h4{font-size:17px;margin:24px 0 4px;font-family:ui-sans-serif,system-ui,sans-serif;font-weight:700}
+  p{margin:10px 0}
+  ul,ol{margin:10px 0 10px 20px;padding:0}
+  li{margin:5px 0}
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px;font-family:ui-sans-serif,system-ui,sans-serif}
+  th{text-align:left;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+    border-bottom:2px solid var(--ink);padding:8px 10px 8px 0;font-weight:700}
+  td{padding:9px 10px 9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+  td.num,th.num{text-align:right;padding-right:0;white-space:nowrap;font-variant-numeric:tabular-nums}
+  td.c,th.c{text-align:center}
+  tr.total td{border-top:2px solid var(--ink);border-bottom:none;font-weight:700;font-size:16px;padding-top:11px}
+  .win{color:var(--accent2);font-weight:700}
+  .lose{color:var(--muted)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin:18px 0}
+  .card.big{border-left:4px solid var(--accent2)}
+  .card.warn{border-left:4px solid var(--accent);background:#fdf6f3}
+  .card.note{border-left:4px solid var(--gold);background:#fcf9f0}
+  .card.alt{border-left:4px solid var(--blue);background:#f5f6f9}
+  .tag{display:inline-block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:10px;
+    letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:3px 9px;border-radius:3px;
+    margin-right:6px;vertical-align:3px}
+  .t-tr{background:#9c3b1f;color:#fff}
+  .t-th{background:#1f5c4d;color:#fff}
+  .day{border-left:2px solid var(--line);padding:2px 0 2px 20px;margin:20px 0;position:relative}
+  .day::before{content:"";position:absolute;left:-6px;top:11px;width:10px;height:10px;
+    border-radius:50%;background:var(--accent2);border:2px solid var(--paper)}
+  .day .dnum{font-family:ui-sans-serif,system-ui,sans-serif;font-size:11px;font-weight:700;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--accent2)}
+  .day .dtitle{font-size:20px;margin:2px 0 6px;font-weight:600}
+  .lede{font-size:19px;color:var(--ink2);border-left:3px solid var(--accent);padding-left:18px;margin:20px 0}
+  .cal{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:20px 0;
+    font-family:ui-sans-serif,system-ui,sans-serif;font-size:12px}
+  .cal div{padding:9px 6px;border-radius:5px;text-align:center;line-height:1.35}
+  .cal .m{font-weight:700;display:block;font-size:13px}
+  .c-tr{background:#f6e3dc;color:#7a2c15}
+  .c-th{background:#dcece6;color:#134338}
+  .c-both{background:#eae4d3;color:#6b5310}
+  .c-no{background:#eceae7;color:#8b8377}
+  footer{margin-top:70px;padding-top:22px;border-top:1px solid var(--line);
+    font-family:ui-sans-serif,system-ui,sans-serif;font-size:12.5px;color:var(--muted)}
+  @media(max-width:700px){h1{font-size:32px}.wrap{padding:34px 18px 60px}.cal{grid-template-columns:repeat(3,1fr)}}
+  @media print{body{background:#fff}h2{page-break-after:avoid}.day{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">Option Two · 14 Days · Thailand · Plus Head-to-Head</div>
+  <h1>Thailand at Fourteen</h1>
+  <p class="sub">The full 14-day Thailand build at the same fidelity as the Turkey plan, plus a direct side-by-side so you can see exactly what each extra day buys you. Nothing is decided here.</p>
+  <div class="meta">Prepared 8 August 2026 · Companion to <em>Where the Dollar Actually Wins</em> · 4 travelers, US East Coast</div>
+</header>
+
+<h2>The Thing That Probably Decides This</h2>
+
+<p class="lede">Turkey and Thailand have <strong>non-overlapping best seasons</strong>. Turkey peaks September–October and April–June. Thailand's Andaman coast peaks December–March. This isn't a tiebreaker — it may be the entire decision.</p>
+
+<div class="cal">
+  <div class="c-tr"><span class="m">JAN</span>Thailand</div>
+  <div class="c-tr"><span class="m">FEB</span>Thailand</div>
+  <div class="c-tr"><span class="m">MAR</span>Thailand</div>
+  <div class="c-both"><span class="m">APR</span>Turkey ok</div>
+  <div class="c-both"><span class="m">MAY</span>Turkey</div>
+  <div class="c-both"><span class="m">JUN</span>Turkey</div>
+  <div class="c-no"><span class="m">JUL</span>TR hot</div>
+  <div class="c-th"><span class="m">AUG</span>TH Gulf</div>
+  <div class="c-th"><span class="m">SEP</span>Both</div>
+  <div class="c-tr"><span class="m">OCT</span>Turkey</div>
+  <div class="c-no"><span class="m">NOV</span>TH Andaman</div>
+  <div class="c-tr"><span class="m">DEC</span>Thailand</div>
+</div>
+
+<p style="font-size:14px;color:var(--muted);font-family:ui-sans-serif,system-ui,sans-serif">
+Reading the calendar: Thailand's two coasts run <strong>opposite</strong> monsoons. The Andaman side (Phuket, Krabi, Phi Phi) is wettest May–October, peaking in September. The Gulf side (Samui, Phangan, Koh Tao) is wettest October–December, peaking in November. <strong>October is the worst month to plan a Thai beach trip</strong> — both coasts are bad simultaneously. Turkey is hot and overpriced in July–August and cools off after late October.</p>
+
+<div class="card big">
+<p style="margin:0"><strong>Practical read:</strong> If you want to go in the next few months — <strong>Turkey.</strong> If you're willing to wait for winter and take 14 days — <strong>Thailand.</strong> If you land on September specifically, both work, but Thailand has to be a <em>Gulf-coast</em> trip (variant B below), not the Phuket/Krabi one everyone pictures.</p>
+</div>
+
+<h2>Head to Head</h2>
+
+<table>
+  <thead><tr><th>Dimension</th><th class="c">Turkey · 10 days</th><th class="c">Thailand · 14 days</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Total cost / person</strong></td><td class="c">$3,450–3,920</td><td class="c win">$3,140–3,690</td></tr>
+    <tr><td><strong>Nights on the ground</strong></td><td class="c">7</td><td class="c win">10</td></tr>
+    <tr><td><strong>Cost per usable day</strong></td><td class="c">~$526</td><td class="c win">~$342</td></tr>
+    <tr><td><strong>Days lost to transit</strong></td><td class="c win">2</td><td class="c">3.5</td></tr>
+    <tr><td><strong>Vacation days burned</strong></td><td class="c win">~7 workdays</td><td class="c">~10 workdays</td></tr>
+    <tr><td><strong>Jet lag</strong></td><td class="c win">+7h · functional day one</td><td class="c">+11–12h · 2–3 days to adjust</td></tr>
+    <tr><td><strong>Nightlife</strong></td><td class="c">More sophisticated — rooftops, Michelin, real cocktail bars</td><td class="c win">Higher volume, wildly cheaper, more variety</td></tr>
+    <tr><td><strong>Beaches</strong></td><td class="c">Good — Aegean, beach clubs, gulets</td><td class="c win">Not close. Limestone karsts, turquoise water, world-class</td></tr>
+    <tr><td><strong>Food</strong></td><td class="c">Michelin dinners at $80. Meze, ocakbaşı, seafood</td><td class="c win">Street food at $1.50, and it's better than most restaurants</td></tr>
+    <tr><td><strong>Alcohol cost</strong></td><td class="c">$6–9 beer · $10–14 cocktail</td><td class="c win">$2–4 beer · $6–10 cocktail</td></tr>
+    <tr><td><strong>History &amp; culture</strong></td><td class="c win">Roman, Byzantine, Ottoman stacked on one street</td><td class="c">Temples and palaces, beautiful but narrower</td></tr>
+    <tr><td><strong>Adventure</strong></td><td class="c">Sunrise balloons, gulet charter, ATV, hammam</td><td class="c win">Diving, jungle, elephants, climbing, Muay Thai</td></tr>
+    <tr><td><strong>Main risk</strong></td><td class="c">The Taksim bar scam</td><td class="c">Transport overcharging, rental-deposit scams</td></tr>
+    <tr><td><strong>Best months</strong></td><td class="c">Sept–Oct · Apr–Jun</td><td class="c">Dec–Mar (Andaman) · Jul–Sept (Gulf)</td></tr>
+  </tbody>
+</table>
+
+<div class="card note">
+<p style="margin-top:0"><strong>The number that matters most: cost per usable day.</strong> Thailand runs about <strong>$342 per day on the ground versus Turkey's $526</strong> — roughly 35% cheaper once you're actually there. Thailand is unambiguously the better <em>value</em>.</p>
+<p style="margin-bottom:0">But it costs three extra workdays per person and hands you a 12-hour time shift. So the honest framing is: <strong>Thailand wins on money, Turkey wins on time.</strong> Which one you're shorter on is the answer.</p>
+</div>
+
+<h2>Plan C — Thailand Andaman · 14 Days Door to Door</h2>
+<p><strong>Bangkok (3 nights) → Chiang Mai (3 nights) → Krabi / Railay (4 nights).</strong> Ten nights on the ground, two domestic flights, three bases. Built for December–March. Two rooms shared between four.</p>
+
+<div class="day">
+  <div class="dnum">Day 0–1 · Departure</div>
+  <div class="dtitle">JFK/EWR → Bangkok</div>
+  <p>One stop, 20–22 hours total. Best routings go through Doha (Qatar), Istanbul (Turkish), Tokyo (ANA/JAL), or Taipei (EVA). Depart Friday evening, land Sunday around 1am. You lose a day and a half — this is the tax you're paying for the exchange rate.</p>
+  <p><strong>Book the aisle seats and take the connection over the shortest total time.</strong> A 3-hour layover where you can walk around beats a 55-minute sprint every time on this route.</p>
+</div>
+
+<div class="day">
+  <div class="dnum">Day 2 · Bangkok</div>
+  <div class="dtitle">Land, temples, riverside</div>
+  <p>Arrive early morning. <strong>Take the metered taxi or a Grab</strong> — a legitimate metered ride from Suvarnabhumi to central Bangkok is 250–400 THB ($8–12). Anyone quoting a 500–1,000 THB flat fare is running the standard airport hustle.</p>
+  <p><strong>Stay:</strong> Anantara Riverside (~$190/room) or Chatrium Riverside (~$140/room) for value; Mandarin Oriental, Peninsula, or Capella at $350–700 if you want the icon. Riverside is the right call — the hotel boats are free and beat Bangkok traffic entirely.</p>
+  <p><strong>Day:</strong> Grand Palace and Wat Pho at opening, Wat Arun across the river at sunset. <strong>Night:</strong> easy. You're 12 hours off. Rooftop at Sky Bar or Vertigo, then sleep.</p>
+</div>
+
+<div class="day">
+  <div class="dnum">Day 3 · Bangkok</div>
+  <div class="dtitle">Markets, Muay Thai, Sukhumvit</div>
+  <p><strong>Day:</strong> Chatuchak Weekend Market if it's Sat/Sun (15,000 stalls), otherwise Talad Noi and Chinatown for a street food crawl. Yaowarat Road after dark is one of the best eating streets on earth.</p>
+  <p><strong>Evening:</strong> <strong>Muay Thai at Rajadamnern Stadium.</strong> Ringside from 2,500 THB (~$75), club class 1,900 THB, VIP lounge with drinks 4,500 THB. Book the real stadium, not a tourist show.</p>
+  <p><strong>Night:</strong> Thonglor and Ekkamai for the good bars, or Sukhumvit Soi 11 for the loud version.</p>
+</div>
+
+<div class="day">
+  <div class="dnum">Day 4 · Bangkok</div>
+  <div class="dtitle">Ayutthaya day trip</div>
+  <p>Ancient capital, an hour north — sprawling temple ruins, ~$50 each with a driver for four. Back by late afternoon. Massage ($10–15 for an hour, and you'll get several this trip), then a proper dinner. Bo.lan or Nahm for high-end Thai, or Jay Fai if you can get in.</p>
+</div>
+
+<div class="day">
+  <div class="dnum">Day 5 · Chiang Mai</div>
+  <div class="dtitle">Fly north</div>
+  <p>Morning flight BKK → CNX, ~75 minutes, $30–50 on Thai Vietjet, Nok Air, or Thai Smile. Chiang Mai is <strong>40–60% cheaper than the islands</strong> and it's where the trip gets good value.</p>
+  <p><strong>Stay:</strong> Nimman district for nightlife and cafés, or Old City for temples. Good 5-star runs ~$110/room. <strong>Night:</strong> Nimman bar street, night bazaar.</p>
+</div>
+
+<div class="day">
+  <div class="dnum">Day 6 · Chiang Mai</div>
+  <div class="dtitle">Elephant sanctuary, jungle</div>
+  <p>Full-day <strong>ethical elephant sanctuary</strong> — no riding, no bullhooks. Elephant Nature Park is the reference standard. ~$70 each including transport and lunch. Book weeks ahead; the legitimate ones sell out.</p>
+  <p><strong>Afternoon/evening:</strong> Doi Suthep temple at sunset over the valley, then back down for dinner.</p>
+</div>
+
+<div class="day">
+  <div class="dnum">Day 7 · Chiang Mai</div>
+  <div class="dtitle">Ziplines, waterfalls, Sunday walking street</div>
+  <p>Jungle zipline course (~$60) or a Mae Taeng day with waterfalls and bamboo rafting. Sticky Waterfalls if you'd rather do something free and genuinely strange — the limestone grips your feet and you climb straight up a waterfall.</p>
+  <p><strong>Night:</strong> Last Chiang Mai night. Cheap, easy, no dress code anywhere.</p>
+</div>
+
+<div class="day">
+  <div class="dnum">Day 8 · Krabi</div>
+  <div class="dtitle">Fly south to the Andaman</div>
+  <p>CNX → KBV, usually connecting through Bangkok, ~$60–90. <em>Note: the direct Chiang Mai–Krabi flight is seasonal and often unavailable May–October.</em></p>
+  <p><strong>Stay:</strong> Railay Beach for the dramatic version — accessible only by longtail boat, ringed by limestone cliffs, no roads. Ao Nang for more restaurants and bars with easier logistics. Budget ~$200/room for a good resort.</p>
+</div>
+
+<div class="day">
+  <div class="dnum">Day 9 · Krabi</div>
+  <div class="dtitle">Private longtail charter — four islands</div>
+  <p>Charter the whole boat, don't buy seats on a shared tour. <strong>4,500–6,500 THB for a full day (~$135–195 for the boat), so $35–50 each.</strong> National park fees run 200–400 THB extra per person. Chicken Island, Tup Island, Poda, and the sandbar you can walk between islands on at low tide. Your own boat means you set the schedule and skip the crowds.</p>
+</div>
+
+<div class="day">
+  <div class="dnum">Day 10 · Krabi</div>
+  <div class="dtitle">Phi Phi day, or rock climbing</div>
+  <p><strong>Option A:</strong> Speedboat to Koh Phi Phi and Maya Bay, ~$60 each. Go early; by 11am it's a parking lot of boats.</p>
+  <p><strong>Option B:</strong> Rock climbing at Railay — world-famous limestone, half-day beginner course ~$35 with a guide and all gear. Even for people who've never climbed.</p>
+  <p><strong>Night:</strong> Ao Nang beach bars, fire shows, buckets. Not sophisticated. Extremely fun.</p>
+</div>
+
+<div class="day">
+  <div class="dnum">Day 11 · Krabi</div>
+  <div class="dtitle">Nothing scheduled</div>
+  <p>Deliberately empty. Ten days in, four guys need one day where the plan is a beach chair, a Chang, and a massage. If the group wants more, the Hong Islands lagoon and Emerald Pool are both close.</p>
+</div>
+
+<div class="day">
+  <div class="dnum">Day 12–13 · Return</div>
+  <div class="dtitle">KBV → BKK → JFK</div>
+  <p>Morning flight to Bangkok (~$45), long layover, evening departure west. You gain the hours back — land on the East Coast the same calendar day. Leave a <strong>4-hour minimum</strong> at BKK; it's a big airport and immigration lines are real.</p>
+</div>
+
+<h4>Plan C — Cost per person</h4>
+<table>
+  <thead><tr><th>Line item</th><th>Detail</th><th class="num">Per person</th></tr></thead>
+  <tbody>
+    <tr><td>International airfare</td><td>JFK/EWR ⇄ BKK, one stop, Dec–Mar high season</td><td class="num">$900–1,200</td></tr>
+    <tr><td>Domestic flights</td><td>BKK→CNX, CNX→KBV via BKK, KBV→BKK</td><td class="num">$150–200</td></tr>
+    <tr><td>Hotel — Bangkok, 3 nights</td><td>2 rooms, ~$170/room/night riverside</td><td class="num">$255</td></tr>
+    <tr><td>Hotel — Chiang Mai, 3 nights</td><td>2 rooms, ~$110/room/night</td><td class="num">$165</td></tr>
+    <tr><td>Hotel — Krabi/Railay, 4 nights</td><td>2 rooms, ~$200/room/night</td><td class="num">$400</td></tr>
+    <tr><td>Food &amp; drink</td><td>10 days, street food to upscale mix, includes bar tabs</td><td class="num">$450–550</td></tr>
+    <tr><td>Activities</td><td>Muay Thai $75 · elephants $70 · Ayutthaya $50 · zipline $60 · longtail share $45 · Phi Phi $60 · climbing $35 · temples &amp; park fees $60 · massages $60</td><td class="num">$450–550</td></tr>
+    <tr><td>Ground transport</td><td>Transfers, Grab, tuk-tuks, longtail shuttles</td><td class="num">$120</td></tr>
+    <tr><td>Buffer</td><td>Tips, gear, the night that gets away from you</td><td class="num">$250</td></tr>
+    <tr class="total"><td>Total, all-in</td><td></td><td class="num">$3,140 – $3,690</td></tr>
+  </tbody>
+</table>
+
+<div class="card alt">
+<h4 style="margin-top:0">Plan C-Lean — the cheaper Thailand</h4>
+<p>Same 14-day route, 3-star boutiques and guesthouses instead of resorts, shoulder-season airfare, street food as the default, and half the paid activities. <strong>Roughly $2,000–2,200 per person all-in.</strong> Thailand is the only destination on either list where you can run a two-week trip at that number and still have it be a good trip — this is what the exchange rate actually buys you.</p>
+</div>
+
+<h2>Variant B — The Gulf Coast Trip</h2>
+<p>If you go <strong>July–September</strong>, you cannot do the Andaman route. Flip to the Gulf side, which is a different — and for four guys, arguably better — trip.</p>
+
+<p><strong>Bangkok 3N → Koh Tao 3N → Koh Phangan 3N → Koh Samui 1N.</strong></p>
+<ul>
+  <li><strong>Koh Tao</strong> — the cheapest place in the world to get PADI Open Water certified. Roughly $300–350 for the full 3–4 day course including accommodation at most dive shops. Four guys leaving Thailand as certified divers is a genuinely good trip outcome.</li>
+  <li><strong>Koh Phangan</strong> — the <strong>Full Moon Party</strong> at Haad Rin. Monthly on the actual full moon, 9pm to sunrise, 200 THB (~$6) cash at the gate, no online tickets. Fourteen parties in 2026 including a New Year's Eve edition on 31 December. <em>Check the exact date before booking flights</em> — it shifts with the lunar calendar and occasionally moves 1–2 days around national holidays.</li>
+  <li><strong>Koh Samui</strong> — has the airport, so it's your exit. One night, decompress, fly out.</li>
+</ul>
+<p>Costs land slightly below Plan C — call it <strong>$2,900–3,400 per person</strong> — because Koh Tao and Koh Phangan are cheaper than Krabi and you drop a domestic flight.</p>
+
+<h2>Thailand Logistics</h2>
+
+<div class="card warn">
+<h4 style="margin-top:0">Visa — this changed and it matters</h4>
+<p style="margin-bottom:0">US citizens get a <strong>30-day visa exemption</strong> on arrival — <strong>reduced from 60 days</strong> in a recent rule change. A 14-day trip is comfortably inside that, but confirm the current rule before you book, and have proof of onward travel ready. Passport valid 6+ months.</p>
+</div>
+
+<div class="card">
+<h4 style="margin-top:0">Scams — the 2026 versions</h4>
+<ul style="margin-bottom:0">
+  <li><strong>Transport overcharging.</strong> The big one. Suvarnabhumi to central Bangkok is 250–400 THB metered. Use Grab (Southeast Asia's Uber) and skip the negotiation entirely.</li>
+  <li><strong>Rental deposit hostage.</strong> Jet ski, motorbike, and car rental shops that keep your passport and then invent damage. <strong>Never hand over your passport as a deposit.</strong> Photograph every scratch before you take the keys. Jet ski scams in Phuket and Pattaya are notorious.</li>
+  <li><strong>"The Grand Palace is closed today."</strong> It isn't. A helpful stranger redirects you to a tuk-tuk driver who takes you to a gem or tailor shop instead. Walk away.</li>
+  <li><strong>Tourist Police: dial 1155.</strong> 24/7, English-speaking. Free. Use it if anything goes sideways.</li>
+</ul>
+</div>
+
+<div class="card">
+<h4 style="margin-top:0">Everything else</h4>
+<ul style="margin-bottom:0">
+  <li><strong>Money:</strong> Baht at ~33/USD. ATMs charge a flat 220 THB foreign fee, so withdraw the maximum each time. Decline dynamic currency conversion. Cash is king outside hotels.</li>
+  <li><strong>Phone:</strong> eSIM via Airalo, or grab an AIS/TrueMove tourist SIM at the airport for ~$10 — both fine here, Thailand doesn't have Turkey's IMEI registration issue.</li>
+  <li><strong>Apps:</strong> Grab (rides + food), 12Go (trains, ferries, buses), Google Translate with Thai downloaded offline.</li>
+  <li><strong>Health:</strong> No vaccines required. Drink bottled water. Bangkok's private hospitals (Bumrungrad, Samitivej) are excellent and cheap — a doctor visit runs $30–50. <strong>Get travel insurance that covers diving</strong> if you're doing Koh Tao; standard policies often exclude it.</li>
+  <li><strong>Temple etiquette:</strong> Shoulders and knees covered, shoes off, never point your feet at a Buddha image. The Grand Palace enforces this at the gate.</li>
+  <li><strong>Drugs:</strong> Cannabis was decriminalized and then re-restricted; the rules are in flux and enforcement is inconsistent. Everything else carries penalties that are severe and not negotiable. Don't.</li>
+</ul>
+</div>
+
+<h2>How I'd Decide</h2>
+<ol>
+  <li><strong>When can all four of you actually get time off?</strong> If it's this fall, the season calendar picks Turkey for you. If it's after Thanksgiving, it picks Thailand.</li>
+  <li><strong>Is anyone tight on PTO?</strong> Thailand costs three more workdays per person. If one guy can't swing it, you're down to three travelers or you're going to Turkey.</li>
+  <li><strong>What does the group actually want most?</strong> If the honest answer is beaches and nightlife, Thailand wins and it isn't close. If it's food, history, and one trip where you're not exhausted, Turkey.</li>
+  <li><strong>Budget is nearly a wash.</strong> $3,140–3,690 versus $3,450–3,920. Do not let a $300 difference decide a trip this size — decide on time and season, then spend accordingly.</li>
+</ol>
+
+<footer>
+<p><strong>Sources</strong> — Rates, advisories, and prices current as of 8 August 2026. Treat totals as planning ranges, not quotes. Verify visa rules and Full Moon Party dates directly before booking flights.</p>
+<p>Trading Economics (USD/THB) · Best Time to Visit Thailand / Explorer Tom / Wego (monsoon and coast seasonality) · Southeast Asia Simplified and Salt in Our Hair (route structure) · Tripadvisor, Expedia, Trip.com, Hotelier's Choice (hotel rates) · Rajadamnern Stadium and Muay Thai Stadiums (ticket pricing) · Thailand Longtail (charter pricing) · Visit Thailand Today and Radical Storage (daily budget data) · Full Moon Party Thailand and Koh Phangan.com (2026 party calendar) · U.S. Embassy Thailand (visa exemption) · Backpack Thailand and Travel And Tour World (2026 scam patterns)</p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>October Cost Sheet — Turkey vs Thailand</title>
+<style>
+  :root{
+    --ink:#14120f;--ink2:#4a423a;--muted:#7f7469;--line:#e3dcd2;
+    --paper:#fbf8f4;--card:#fff;--red:#9c3b1f;--grn:#1f5c4d;--gold:#8a6a1f;--blue:#3d4a63;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;font-size:16px;line-height:1.58}
+  .wrap{max-width:900px;margin:0 auto;padding:48px 26px 90px}
+  header.top{border-bottom:3px solid var(--ink);padding-bottom:20px;margin-bottom:34px}
+  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:800}
+  h1{font-size:42px;line-height:1.05;margin:11px 0 8px;letter-spacing:-.028em;font-weight:800}
+  .sub{color:var(--ink2);font-size:17.5px;max-width:60ch;margin:0}
+  .meta{font-size:12px;color:var(--muted);margin-top:14px;letter-spacing:.03em}
+  h2{font-size:13px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--red);
+    margin:52px 0 4px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+  h3{font-size:23px;margin:30px 0 4px;letter-spacing:-.015em;font-weight:800}
+  h4{font-size:15px;margin:22px 0 4px;font-weight:800;letter-spacing:.02em}
+  p{margin:9px 0}
+  ul,ol{margin:9px 0 9px 20px;padding:0}li{margin:4px 0}
+
+  .hero{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0 8px}
+  .hbox{border-radius:12px;padding:22px 22px 20px;color:#fff}
+  .hbox.tr{background:linear-gradient(160deg,#a03d1f,#7a2c14)}
+  .hbox.th{background:linear-gradient(160deg,#1f6151,#134338)}
+  .hbox .lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.8;font-weight:800}
+  .hbox .cty{font-size:27px;font-weight:800;margin:4px 0 2px;letter-spacing:-.02em}
+  .hbox .win{font-size:13px;opacity:.85;margin-bottom:14px}
+  .hbox .big{font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1}
+  .hbox .per{font-size:12.5px;opacity:.85;margin-top:5px}
+
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px}
+  th{text-align:left;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+    border-bottom:2px solid var(--ink);padding:8px 10px 8px 0;font-weight:800}
+  td{padding:9px 10px 9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+  td.num,th.num{text-align:right;padding-right:0;white-space:nowrap;font-variant-numeric:tabular-nums}
+  td.c,th.c{text-align:center}
+  tr.total td{border-top:2px solid var(--ink);border-bottom:none;font-weight:800;font-size:17px;padding-top:11px}
+  tr.pick td{background:#f1ece2}
+  .pill{display:inline-block;font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;
+    padding:3px 8px;border-radius:3px;color:#fff}
+  .p-go{background:#1f5c4d}.p-no{background:#9c3b1f}.p-mid{background:#8a6a1f}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:19px 22px;margin:16px 0}
+  .card.go{border-left:4px solid var(--grn)}
+  .card.warn{border-left:4px solid var(--red);background:#fdf6f3}
+  .card.note{border-left:4px solid var(--gold);background:#fcf9f0}
+  .card.blue{border-left:4px solid var(--blue);background:#f5f6f9}
+  .card h4{margin-top:0}.card>:last-child{margin-bottom:0}
+
+  .pay{border-left:2px solid var(--line);padding:2px 0 2px 22px;margin:22px 0;position:relative}
+  .pay::before{content:"";position:absolute;left:-7px;top:9px;width:12px;height:12px;border-radius:50%;
+    background:var(--red);border:2px solid var(--paper)}
+  .pay .when{font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--red)}
+  .pay .what{font-size:19px;font-weight:800;margin:1px 0 3px;letter-spacing:-.01em}
+  .pay .amt{float:right;font-size:22px;font-weight:800;letter-spacing:-.02em}
+
+  .quote{background:#14120f;color:#f4efe7;border-radius:11px;padding:22px 24px;margin:22px 0;
+    font-size:15.5px;line-height:1.66}
+  .quote strong{color:#fff}
+  .quote .lbl{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#a09585;
+    font-weight:800;display:block;margin-bottom:10px}
+
+  footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+  @media(max-width:720px){h1{font-size:31px}.wrap{padding:32px 17px 60px}
+    .hero{grid-template-columns:1fr}table{font-size:13px}.pay .amt{float:none;display:block;margin-top:4px}}
+  @media print{body{background:#fff}.card,.pay{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">Cost Sheet · October 2026 · 4 Travelers · Nice Hotels</div>
+  <h1>What This Actually Costs</h1>
+  <p class="sub">Turkey vs Thailand, priced at the nice-hotel tier, at three trip lengths each. Real numbers, per person, all-in. Plus the payment schedule that makes people commit.</p>
+  <div class="meta">Priced 8 August 2026 · Departing JFK/EWR · Two rooms shared between four · Includes flights, lodging, food, drinks, activities, and buffer</div>
+</header>
+
+<div class="hero">
+  <div class="hbox tr">
+    <div class="lbl">Recommended · Turkey</div>
+    <div class="cty">Istanbul + Cappadocia</div>
+    <div class="win">9 days · October 3–11</div>
+    <div class="big">$3,290</div>
+    <div class="per">per person, everything in</div>
+  </div>
+  <div class="hbox th">
+    <div class="lbl">Alternative · Thailand</div>
+    <div class="cty">Bangkok + Chiang Mai + Krabi</div>
+    <div class="win">12 days · October 22 – November 2</div>
+    <div class="big">$3,460</div>
+    <div class="per">per person, everything in</div>
+  </div>
+</div>
+
+<p style="font-size:14px;color:var(--muted);text-align:center;margin:6px 0 0">
+Those are the two headline options. Full menu below.</p>
+
+<h2>Every Option, Priced</h2>
+
+<table>
+  <thead>
+    <tr><th>Trip</th><th class="c">Days</th><th class="c">Nights</th><th class="c">Window</th><th class="c">Weather</th><th class="num">Per person</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Turkey — Istanbul only</strong></td><td class="c">7</td><td class="c">5</td><td class="c">Oct 3–9</td><td class="c"><span class="pill p-go">Peak</span></td><td class="num">$2,435</td></tr>
+    <tr class="pick"><td><strong>Turkey — Istanbul + Cappadocia</strong> ← pick this</td><td class="c">9</td><td class="c">7</td><td class="c">Oct 3–11</td><td class="c"><span class="pill p-go">Peak</span></td><td class="num">$3,290</td></tr>
+    <tr><td><strong>Turkey — + Ephesus &amp; Pamukkale</strong></td><td class="c">12</td><td class="c">10</td><td class="c">Oct 3–14</td><td class="c"><span class="pill p-go">Peak</span></td><td class="num">$4,065</td></tr>
+    <tr><td colspan="6" style="border:none;height:8px"></td></tr>
+    <tr><td><strong>Thailand — Bangkok only</strong></td><td class="c">7</td><td class="c">5</td><td class="c">Oct 24–30</td><td class="c"><span class="pill p-mid">OK</span></td><td class="num">$2,230</td></tr>
+    <tr><td><strong>Thailand — Bangkok + Krabi</strong></td><td class="c">9</td><td class="c">7</td><td class="c">Oct 22–30</td><td class="c"><span class="pill p-go">Good</span></td><td class="num">$2,815</td></tr>
+    <tr class="pick"><td><strong>Thailand — Bangkok + Chiang Mai + Krabi</strong></td><td class="c">12</td><td class="c">10</td><td class="c">Oct 22 – Nov 2</td><td class="c"><span class="pill p-go">Good</span></td><td class="num">$3,460</td></tr>
+  </tbody>
+</table>
+
+<div class="card warn">
+<h4>Two things that are not negotiable about October</h4>
+<p><strong>Thailand cannot start before October 20.</strong> Early October is 180mm of rain in Bangkok and up to 300mm on the Andaman coast. After the 20th it flips — Phuket and Krabi become reliable, Chiang Mai leaves the rainy season, Bangkok storms ease. If the group can't align on late-October dates, Thailand is off and this is a Turkey trip.</p>
+<p style="margin-bottom:0"><strong>The 7-day Thailand option is priced but I don't recommend it.</strong> Twenty-plus hours each way for five nights on the ground. It's the cheapest number on the sheet and the worst value on it.</p>
+</div>
+
+<h2>Where The Money Goes — Turkey, 9 Days</h2>
+<p><strong>Istanbul 5 nights + Cappadocia 2 nights.</strong> October 3–11. Two rooms shared between four.</p>
+
+<table>
+  <thead><tr><th>Line item</th><th>What you're getting</th><th class="num">Per person</th></tr></thead>
+  <tbody>
+    <tr><td>Flights</td><td>JFK/EWR ⇄ Istanbul, nonstop, 10h each way, economy</td><td class="num">$800</td></tr>
+    <tr><td>Domestic flights</td><td>Istanbul ⇄ Kayseri round trip</td><td class="num">$90</td></tr>
+    <tr><td>Hotel — Istanbul, 5N</td><td>4/5-star in Karaköy or Beyoğlu, ~$220/room/night</td><td class="num">$550</td></tr>
+    <tr><td>Hotel — Cappadocia, 2N</td><td>Real cave suite, ~$300/room/night</td><td class="num">$300</td></tr>
+    <tr><td>Food &amp; drink</td><td>7 days at ~$95/day — eating well, drinking freely, two big dinners</td><td class="num">$665</td></tr>
+    <tr><td>Activities</td><td>Sunrise balloon $220 · private Bosphorus boat $65 · hammam $75 · ATV $45 · museum entries $100</td><td class="num">$505</td></tr>
+    <tr><td>Ground transport</td><td>Airport transfers, taxis, ferries, Istanbulkart</td><td class="num">$130</td></tr>
+    <tr><td>Buffer</td><td>Tips, shopping, the night that gets away from you</td><td class="num">$250</td></tr>
+    <tr class="total"><td>Total</td><td></td><td class="num">$3,290</td></tr>
+  </tbody>
+</table>
+
+<h2>Where The Money Goes — Thailand, 12 Days</h2>
+<p><strong>Bangkok 4 nights + Chiang Mai 3 nights + Krabi 3 nights.</strong> October 22 – November 2.</p>
+
+<table>
+  <thead><tr><th>Line item</th><th>What you're getting</th><th class="num">Per person</th></tr></thead>
+  <tbody>
+    <tr><td>Flights</td><td>JFK/EWR ⇄ Bangkok, one stop, 20–22h each way</td><td class="num">$950</td></tr>
+    <tr><td>Domestic flights</td><td>BKK→Chiang Mai, Chiang Mai→Krabi via BKK, Krabi→BKK</td><td class="num">$165</td></tr>
+    <tr><td>Hotel — Bangkok, 4N</td><td>Riverside 5-star, ~$190/room/night</td><td class="num">$380</td></tr>
+    <tr><td>Hotel — Chiang Mai, 3N</td><td>Nimman or Old City, ~$130/room/night</td><td class="num">$195</td></tr>
+    <tr><td>Hotel — Krabi, 3N</td><td>Beachfront resort, ~$220/room/night</td><td class="num">$330</td></tr>
+    <tr><td>Food &amp; drink</td><td>10 days at ~$55/day — and that is eating extremely well in Thailand</td><td class="num">$550</td></tr>
+    <tr><td>Activities</td><td>Muay Thai ringside $75 · Ayutthaya $50 · elephant sanctuary $70 · zipline $60 · private longtail $45 · Phi Phi day $60 · temples &amp; massages $90</td><td class="num">$450</td></tr>
+    <tr><td>Ground transport</td><td>Transfers, Grab, tuk-tuks, longtail shuttles</td><td class="num">$160</td></tr>
+    <tr><td>Buffer</td><td></td><td class="num">$280</td></tr>
+    <tr class="total"><td>Total</td><td></td><td class="num">$3,460</td></tr>
+  </tbody>
+</table>
+
+<h2>Levers — If Someone Says It's Too Much</h2>
+<p>Each of these is independent. Stack them as needed.</p>
+
+<table>
+  <thead><tr><th>Lever</th><th>What changes</th><th class="num">Saves / person</th></tr></thead>
+  <tbody>
+    <tr><td>Drop to 4-star boutique</td><td>~$95/room instead of $220. Still clean, still central, smaller rooms.</td><td class="num">$310</td></tr>
+    <tr><td>Eat local, one nice dinner</td><td>$50/day instead of $95. In Turkey that's still ocakbaşı and meze every night.</td><td class="num">$315</td></tr>
+    <tr><td>Skip the balloon</td><td>The one I'd fight you on. It's the trip's signature.</td><td class="num">$220</td></tr>
+    <tr><td>Cut Cappadocia entirely</td><td>7-day Istanbul-only trip. Drops a flight, two hotel nights, and two travel mornings.</td><td class="num">$855</td></tr>
+    <tr><td>Book flights within 2 weeks</td><td>October is 8 weeks out. Every week you wait costs roughly $40–70 a ticket.</td><td class="num">$150+</td></tr>
+    <tr><td>Three to a room instead of two</td><td>Triples are common in Turkey. Cramped but cheap.</td><td class="num">$180</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Full lean tier, everything stacked:</strong> Turkey 9 days lands around <strong>$2,400 per person</strong> (keeping the balloon). Thailand 12 days around <strong>$2,450</strong>. Both are still good trips — not compromised ones.</p>
+
+<h2>Hotels vs Airbnb — The Short Answer</h2>
+
+<div class="card blue">
+<p><strong>Book hotels.</strong> Two reasons, and the second one is the surprising one.</p>
+<p><strong>1 · It's a legal mess in both countries.</strong> Turkey's Law No. 7464 — the "100-day law" — has been fully enforced since January 2026. Any rental under 100 days requires a permit that needs unanimous approval from every owner in the building. Most listings don't have it, and inspections and license revocations are active. In Thailand, sub-30-day condo rentals are illegal without a hotel license under the Hotel Act; penalties run to a year's imprisonment plus 20,000 THB and 10,000/day, and there was a raid on 191 rooms in Pratunam. Enforcement targets hosts — but guests are who ends up on the sidewalk at 11pm.</p>
+<p style="margin-bottom:0"><strong>2 · The savings barely exist here.</strong> A 2-bedroom Istanbul apartment runs $180–250/night against $440 for two good hotel rooms. That's ~$50 per person per night — and you're trading away breakfast, housekeeping, a front desk that solves problems at 2am, better locations, and legal certainty. The Airbnb arbitrage that works at home mostly evaporates when hotel rooms cost $110–220.</p>
+</div>
+
+<div class="card note">
+<p style="margin:0"><strong>The middle option:</strong> a <strong>licensed serviced apartment or aparthotel</strong>. Apartment layout, separate bedrooms, a kitchen and shared living room to pre-game in, plus a real front desk and an actual license. Both Istanbul and Bangkok have good ones, and pricing sits between the two columns. If the group wants one shared space, this is the version to book — not a private listing.</p>
+</div>
+
+<h2>The Commit Schedule</h2>
+<p>This is the part that gets four people off the fence. <strong>Flights are the only real commitment.</strong> Almost everything else is refundable until close to departure — so the decision is smaller than it feels.</p>
+
+<div class="pay">
+  <span class="amt">$800–950</span>
+  <div class="when">Now — by August 22</div>
+  <div class="what">Flights. This is the only hard commit.</div>
+  <p style="margin:4px 0 0">October is eight weeks out, which is already on the late side. Everyone books the same flight the same day. Once four tickets are bought, the trip exists. <strong>This is the deadline to hold people to.</strong></p>
+</div>
+
+<div class="pay">
+  <span class="amt">$0</span>
+  <div class="when">Late August</div>
+  <div class="what">Hotels — booked, not paid.</div>
+  <p style="margin:4px 0 0">Book everything on free-cancellation rates. You reserve the good rooms now and pay nothing until roughly a week out. Zero risk, and the good Cappadocia cave hotels sell out first.</p>
+</div>
+
+<div class="pay">
+  <span class="amt">$310</span>
+  <div class="when">Early September</div>
+  <div class="what">Domestic flights + the balloon.</div>
+  <p style="margin:4px 0 0">Domestic legs ($90) and the balloon deposit ($220). Book the balloon direct with the operator, on your <em>first</em> Cappadocia morning so the second is a weather backup. October cancellation rates are 7–17%, the lowest of the year — but leave the buffer anyway.</p>
+</div>
+
+<div class="pay">
+  <span class="amt">$850</span>
+  <div class="when">Late September</div>
+  <div class="what">Hotel balances come due.</div>
+  <p style="margin:4px 0 0">Free-cancellation windows close about 7 days out. This is the second real commitment point.</p>
+</div>
+
+<div class="pay">
+  <span class="amt">$1,330</span>
+  <div class="when">On the ground</div>
+  <div class="what">Food, drinks, activities, transport, buffer.</div>
+  <p style="margin:4px 0 0">Spent as you go. Cards work nearly everywhere in Istanbul and Bangkok; carry cash for Cappadocia and Chiang Mai.</p>
+</div>
+
+<div class="quote">
+  <span class="lbl">Copy-paste for the group chat</span>
+  <p><strong>TURKEY — Oct 3 to 11.</strong> Istanbul 5 nights, Cappadocia 2 nights. Nice hotels, two guys a room.</p>
+  <p><strong>$3,290 each, all in.</strong> That's flights, hotels, food, drinks, the hot air balloon, a private boat on the Bosphorus, and everything else. No hidden costs after this number.</p>
+  <p><strong>What you owe right now: $800 for the flight. That's it.</strong> Hotels get booked on free cancellation and cost nothing until late September. If the trip falls apart before then, you're only out the flight.</p>
+  <p style="margin-bottom:0"><strong>Deadline is August 22.</strong> Every week we wait adds $40–70 to the ticket. In or out.</p>
+</div>
+
+<div class="card go">
+<h4>If they still won't commit</h4>
+<p style="margin-bottom:0">Book your own flight on the 22nd anyway and tell them the seat next to you is open until it isn't. Four people rarely decide together — one person decides and the other three follow. The trip needs exactly one person willing to go first.</p>
+</div>
+
+<footer>
+<p><strong>Sources</strong> — Prices and weather data current as of 8 August 2026. Airfare is the largest variable and moves weekly; treat totals as planning estimates. Verify visa rules before booking: US citizens are visa-free in Turkey for 90 days, and get a 30-day visa exemption in Thailand (reduced from 60 — confirm before you fly).</p>
+<p>Trading Economics (USD/TRY, USD/THB) · Momondo, Skyscanner, Expedia (airfare) · Weather25, Weather &amp; Climate, Rough Guides, Selective Asia (October weather by region) · BalloonScanner and Above Cappadocia (balloon cancellation rates by month) · Atlas Legal Partners and Deal-TR (Turkey Law No. 7464 short-term rental rules) · Thai Law Online and Benoit &amp; Partners (Thailand Hotel Act short-term rental rules) · Hotel Perula, Tripadvisor, Expedia (hotel rates) · Rajadamnern Stadium (Muay Thai pricing)</p>
+</footer>
+
+</div>
+</body>
+</html>

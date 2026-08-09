@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Civ Homelands As Destinations</title>
+<style>
+  :root{
+    --ink:#14120f;--ink2:#4a423a;--muted:#7f7469;--line:#e3dcd2;--paper:#fbf8f4;--card:#fff;
+    --red:#9c3b1f;--grn:#1f6151;--gold:#8a6a1f;--blue:#2d4a7a;--gray:#6b6259;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;font-size:16px;line-height:1.58}
+  .wrap{max-width:1000px;margin:0 auto;padding:48px 24px 90px}
+  header.top{border-bottom:3px solid var(--ink);padding-bottom:20px;margin-bottom:30px}
+  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:800}
+  h1{font-size:44px;line-height:1.04;margin:11px 0 8px;letter-spacing:-.03em;font-weight:800}
+  .sub{color:var(--ink2);font-size:17.5px;max-width:62ch;margin:0}
+  .meta{font-size:12px;color:var(--muted);margin-top:13px}
+  h2{font-size:13px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--red);
+    margin:52px 0 4px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+  h3{font-size:23px;margin:28px 0 4px;letter-spacing:-.015em;font-weight:800}
+  p{margin:9px 0}ul{margin:8px 0 8px 19px;padding:0}li{margin:5px 0}
+
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+  th{text-align:left;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    border-bottom:2px solid var(--ink);padding:9px 9px 9px 0;font-weight:800}
+  td{padding:8px 9px 8px 0;border-bottom:1px solid var(--line);vertical-align:middle}
+  td.num,th.num{text-align:right;padding-right:0;font-variant-numeric:tabular-nums;white-space:nowrap}
+  td.c,th.c{text-align:center}
+  td:first-child{font-weight:700}
+  tr.hi td{background:#f1ece2}
+  tr.dead td{color:var(--muted)}
+  .pill{display:inline-block;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;
+    padding:3px 7px;border-radius:3px;color:#fff;white-space:nowrap}
+  .p-go{background:#1f6151}.p-no{background:#9c3b1f}.p-mid{background:#8a6a1f}
+  .p-eu{background:#6b6259}.p-l1{background:#0f5c3f}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:18px 22px;margin:16px 0}
+  .card.big{border-left:4px solid var(--grn)}
+  .card.warn{border-left:4px solid var(--red);background:#fdf6f3}
+  .card.note{border-left:4px solid var(--gold);background:#fcf9f0}
+  .card.blue{border-left:4px solid var(--blue);background:#f5f6f9}
+  .card>:last-child{margin-bottom:0}.card h3{margin-top:0}
+
+  .scat{margin:22px 0;padding:20px 18px 12px;background:var(--card);
+    border:1px solid var(--line);border-radius:11px}
+  .srow{display:grid;grid-template-columns:130px 1fr 60px;gap:10px;align-items:center;margin:7px 0;font-size:13.5px}
+  .srow .lab{font-weight:700;text-align:right}
+  .srow .track{background:#efe9e0;border-radius:4px;height:20px;position:relative;overflow:hidden}
+  .srow .fill{position:absolute;left:0;top:0;bottom:0;border-radius:4px}
+  .srow .val{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .legend{font-size:11.5px;color:var(--muted);margin-top:12px;text-align:center}
+
+  .quote{background:#14120f;color:#f4efe7;border-radius:11px;padding:22px 24px;margin:22px 0;line-height:1.66}
+  .quote strong{color:#fff}
+  .quote .lbl{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#a09585;
+    font-weight:800;display:block;margin-bottom:10px}
+  footer{margin-top:62px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+  @media(max-width:820px){h1{font-size:31px}.wrap{padding:32px 16px 60px}table{font-size:12.5px}
+    .srow{grid-template-columns:96px 1fr 52px;font-size:12px}}
+  @media print{body{background:#fff}.card,.quote{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">Every Civ As A Real Place · Screened, Priced, Ranked</div>
+  <h1>Can You Beat Seoul With A Sultanate?</h1>
+  <p class="sub">All 23 Age of Empires IV civilizations mapped to the actual country you'd fly to. Four are eliminated by State Department advisories. Five are genuinely viable. One of them is the best-value trip on any list I've built for you — and it still probably isn't your trip.</p>
+  <div class="meta">Screened 8 August 2026 · October travel · 4 travelers · Compared against Japan, Turkey, South Korea, Thailand</div>
+</header>
+
+<h2>The Full Map</h2>
+
+<table>
+  <thead><tr><th>Civilization</th><th>Where you'd actually go</th><th class="c">Status</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr class="hi"><td>Ayyubids</td><td><strong>Egypt</strong> — Cairo, Saladin's Citadel, Luxor</td><td class="c"><span class="pill p-go">Viable</span></td><td>Level 2. Pound at 50/USD. October is peak</td></tr>
+    <tr class="hi"><td>Mongols / Golden Horde</td><td><strong>Uzbekistan</strong> — Samarkand, Bukhara, Khiva</td><td class="c"><span class="pill p-l1">Level 1</span></td><td>Visa-free since Jan 2026. Lowest advisory tier there is</td></tr>
+    <tr class="hi"><td>Delhi Sultanate / Tughlaq</td><td><strong>India</strong> — Delhi, Qutb Minar, Tughlaqabad</td><td class="c"><span class="pill p-mid">Viable</span></td><td>Absurdly cheap. High friction, thin nightlife</td></tr>
+    <tr class="hi"><td>Order of the Dragon</td><td><strong>Romania</strong> — Transylvania, Brașov, Bran</td><td class="c"><span class="pill p-mid">Viable</span></td><td>Vlad II's actual order. $45–100/day. Peak Dracula crowds in Oct</td></tr>
+    <tr class="hi"><td>Mongols</td><td><strong>Mongolia</strong> — Ulaanbaatar, Gobi, Orkhon</td><td class="c"><span class="pill p-no">Wrong season</span></td><td>October: 48°F day, 25°F night. Ger camps closing</td></tr>
+    <tr><td>Byzantines / Macedonian / Ottomans</td><td>Turkey — Istanbul, Cappadocia</td><td class="c"><span class="pill p-go">Already listed</span></td><td>Three civs, one city</td></tr>
+    <tr><td>Japanese / Sengoku Daimyo</td><td>Japan — Kyoto, Osaka</td><td class="c"><span class="pill p-go">Already listed</span></td><td>Two civs</td></tr>
+    <tr><td>Chinese / Zhu Xi's / Jin</td><td>China — Beijing, Xi'an, Hangzhou</td><td class="c"><span class="pill p-mid">High overhead</span></td><td>Visa, VPN, Alipay setup. Trip two</td></tr>
+    <tr><td>Knights Templar</td><td>Jerusalem, Acre — <em>or</em> Cyprus, Malta, Tomar</td><td class="c"><span class="pill p-no">Core is out</span></td><td>Levant is a conflict zone. Cyprus/Malta are fine but are Europe</td></tr>
+    <tr class="dead"><td>Abbasid Dynasty</td><td>Iraq — Baghdad</td><td class="c"><span class="pill p-no">Level 4</span></td><td>Do Not Travel. Not a close call</td></tr>
+    <tr class="dead"><td>Malians</td><td>Mali — Timbuktu, Djenné</td><td class="c"><span class="pill p-no">Level 4</span></td><td>Do Not Travel — terrorism, kidnapping</td></tr>
+    <tr class="dead"><td>Rus</td><td>Russia — Novgorod, Kyiv</td><td class="c"><span class="pill p-no">Level 4</span></td><td>Covered last message. Detention risk, no working cards</td></tr>
+    <tr class="dead"><td>Golden Horde</td><td>Kazan, Astrakhan, Crimea</td><td class="c"><span class="pill p-no">Level 4</span></td><td>Same. Uzbekistan is the accessible substitute</td></tr>
+    <tr class="dead"><td>English / House of Lancaster</td><td>England — London, York, Lancashire</td><td class="c"><span class="pill p-eu">You said no</span></td><td>Europe, and no currency advantage</td></tr>
+    <tr class="dead"><td>French / Jeanne d'Arc</td><td>France — Paris, Orléans, Rouen</td><td class="c"><span class="pill p-eu">You said no</span></td><td>Same</td></tr>
+    <tr class="dead"><td>Holy Roman Empire</td><td>Germany, Austria, Czechia</td><td class="c"><span class="pill p-eu">You said no</span></td><td>Prague is good value. Still Europe</td></tr>
+  </tbody>
+</table>
+
+<h2>The Two Worth Taking Seriously</h2>
+
+<h3 style="color:#1f6151">Uzbekistan — the best-value trip on any list I've built you</h3>
+<p>Three things landed at once here, and the first one is brand new:</p>
+<ul>
+  <li><strong>Visa-free for Americans since 1 January 2026.</strong> No application, no fee, no e-visa. 30 days on a valid passport.</li>
+  <li><strong>State Department Level 1 — Exercise Normal Precautions.</strong> The lowest tier that exists. Nothing else on any list I've given you is Level 1. Not Japan's neighbors, not Turkey, not Thailand.</li>
+  <li><strong>September and October is the window</strong>, and it's closing — the country is on track for 12 million visitors this year.</li>
+</ul>
+<p><strong>What it is:</strong> the Silk Road, intact. The Registan in Samarkand is three madrasas facing a plaza, tiled floor to dome in blue. Bukhara is a walled old city that's been continuously inhabited for two thousand years. Khiva is a preserved desert fortress. Genghis Khan sacked all of it in 1220 — that's your Mongol connection — and Timur rebuilt Samarkand into the capital of an empire.</p>
+<p><strong>Trains between cities cost $24–39.</strong> High-speed, modern, book on 12go.asia since international cards often fail on the official rail site.</p>
+
+<table>
+  <thead><tr><th>Line item</th><th>Detail</th><th class="num">Per person</th></tr></thead>
+  <tbody>
+    <tr><td>Flights</td><td>JFK ⇄ Tashkent via Istanbul (no nonstop)</td><td class="num">$1,000</td></tr>
+    <tr><td>Trains</td><td>Tashkent → Samarkand → Bukhara → Khiva</td><td class="num">$120</td></tr>
+    <tr><td>Hotels, 8 nights</td><td>2 rooms, ~$70/room/night boutique</td><td class="num">$280</td></tr>
+    <tr><td>Food &amp; drink</td><td>8 days at ~$30/day</td><td class="num">$240</td></tr>
+    <tr><td>Activities</td><td>Registan, Shah-i-Zinda, Ark of Bukhara, Itchan Kala, guides</td><td class="num">$200</td></tr>
+    <tr><td>Ground + buffer</td><td></td><td class="num">$300</td></tr>
+    <tr style="border-top:2px solid var(--ink);font-weight:800;font-size:16px"><td>Total, 10 days</td><td></td><td class="num">$2,140</td></tr>
+  </tbody>
+</table>
+<p><strong>$128 per night on the ground excluding flights.</strong> That is roughly <em>half</em> of Thailand and under 40% of Turkey.</p>
+
+<h3 style="color:#9c3b1f">Egypt — the closest thing to a real challenger</h3>
+<p>Pound at <strong>50.25 to the dollar</strong> after a full collapse. <strong>Level 2</strong> — the same tier as France, Italy, and the UK — with Do Not Travel confined to North/Middle Sinai and parts of the Western Desert, nowhere near Cairo, Luxor, or Aswan. October is the start of peak season. Roughly 11 hours nonstop from JFK on EgyptAir.</p>
+<p><strong>What it is:</strong> Pyramids and the Sphinx. The Grand Egyptian Museum. A four-night Nile cruise from Luxor to Aswan — 5-star boats start at <strong>$490 per person for four nights, all meals included</strong>. Valley of the Kings. Abu Simbel. Saladin's Citadel over Cairo, which is your literal Ayyubid landmark.</p>
+
+<table>
+  <thead><tr><th>Line item</th><th>Detail</th><th class="num">Per person</th></tr></thead>
+  <tbody>
+    <tr><td>Flights</td><td>JFK ⇄ Cairo, ~11h nonstop on EgyptAir</td><td class="num">$850</td></tr>
+    <tr><td>Domestic flights</td><td>Cairo → Luxor, Aswan → Cairo</td><td class="num">$150</td></tr>
+    <tr><td>Cairo hotel, 3N</td><td>2 rooms, ~$130/room/night</td><td class="num">$195</td></tr>
+    <tr><td>Nile cruise, 4N</td><td>5-star, all meals, Luxor → Aswan</td><td class="num">$490</td></tr>
+    <tr><td>Extra night, Aswan</td><td></td><td class="num">$50</td></tr>
+    <tr><td>Food &amp; drink</td><td>9 days at ~$40/day</td><td class="num">$360</td></tr>
+    <tr><td>Activities</td><td>Pyramids, GEM, Valley of the Kings, Abu Simbel, private guide, felucca</td><td class="num">$320</td></tr>
+    <tr><td>Ground + buffer</td><td></td><td class="num">$370</td></tr>
+    <tr style="border-top:2px solid var(--ink);font-weight:800;font-size:16px"><td>Total, 10–11 days</td><td></td><td class="num">$2,785</td></tr>
+  </tbody>
+</table>
+
+<h2>The Problem — In One Chart</h2>
+
+<p>You told me the top priority was <strong>"we want to stay at night places."</strong> Here's every candidate scored on cost-efficiency against nightlife.</p>
+
+<div class="scat">
+  <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:10px">Cost per night on the ground, excluding flights — lower is better</div>
+  <div class="srow"><div class="lab">Uzbekistan</div><div class="track"><div class="fill" style="width:37%;background:#1f6151"></div></div><div class="val">$128</div></div>
+  <div class="srow"><div class="lab">Egypt</div><div class="track"><div class="fill" style="width:58%;background:#3d7a5f"></div></div><div class="val">$198</div></div>
+  <div class="srow"><div class="lab">South Korea</div><div class="track"><div class="fill" style="width:65%;background:#5c8a6a"></div></div><div class="val">$224</div></div>
+  <div class="srow"><div class="lab">Thailand</div><div class="track"><div class="fill" style="width:68%;background:#7a8f68"></div></div><div class="val">$235</div></div>
+  <div class="srow"><div class="lab">Japan</div><div class="track"><div class="fill" style="width:75%;background:#9c8a52"></div></div><div class="val">$258</div></div>
+  <div class="srow"><div class="lab">Turkey</div><div class="track"><div class="fill" style="width:100%;background:#9c3b1f"></div></div><div class="val">$343</div></div>
+
+  <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:800;margin:22px 0 10px">Nightlife — higher is better</div>
+  <div class="srow"><div class="lab">South Korea</div><div class="track"><div class="fill" style="width:100%;background:#1f6151"></div></div><div class="val">10</div></div>
+  <div class="srow"><div class="lab">Japan</div><div class="track"><div class="fill" style="width:90%;background:#3d7a5f"></div></div><div class="val">9</div></div>
+  <div class="srow"><div class="lab">Thailand</div><div class="track"><div class="fill" style="width:90%;background:#3d7a5f"></div></div><div class="val">9</div></div>
+  <div class="srow"><div class="lab">Turkey</div><div class="track"><div class="fill" style="width:80%;background:#5c8a6a"></div></div><div class="val">8</div></div>
+  <div class="srow"><div class="lab">Romania</div><div class="track"><div class="fill" style="width:60%;background:#9c8a52"></div></div><div class="val">6</div></div>
+  <div class="srow"><div class="lab">India</div><div class="track"><div class="fill" style="width:30%;background:#b06a3a"></div></div><div class="val">3</div></div>
+  <div class="srow"><div class="lab">Egypt</div><div class="track"><div class="fill" style="width:20%;background:#9c3b1f"></div></div><div class="val">2</div></div>
+  <div class="srow"><div class="lab">Uzbekistan</div><div class="track"><div class="fill" style="width:10%;background:#9c3b1f"></div></div><div class="val">1</div></div>
+  <div class="legend">Nightlife scored on bar density, hours, variety, and how welcoming the scene is to four foreign guys with no local language.</div>
+</div>
+
+<div class="card warn">
+<p style="margin:0"><strong>The two charts are almost perfectly inverted.</strong> Every civ homeland that's cheap and viable is a <em>daytime</em> country. Egypt and Uzbekistan are both majority-Muslim with limited and expensive alcohol, and their evenings are quiet by design. India is cheap but high-friction. Mongolia is out on season. Romania has real nightlife but it's Europe, and October is peak Dracula tourism in exactly the region you'd want.</p>
+</div>
+
+<h2>Straight Answer</h2>
+
+<table>
+  <thead><tr><th>Destination</th><th class="num">Total</th><th class="num">$/night ex-flight</th><th class="c">Nightlife</th><th class="c">Beats the incumbents?</th></tr></thead>
+  <tbody>
+    <tr class="hi"><td>South Korea</td><td class="num">$2,945</td><td class="num">$224</td><td class="c">10</td><td class="c"><strong style="color:#1f6151">Still the pick</strong></td></tr>
+    <tr><td>Japan</td><td class="num">$3,525</td><td class="num">$258</td><td class="c">9</td><td class="c">Best overall trip</td></tr>
+    <tr><td>Turkey</td><td class="num">$3,290</td><td class="num">$343</td><td class="c">8</td><td class="c">Fewest days off</td></tr>
+    <tr><td>Thailand</td><td class="num">$3,460</td><td class="num">$235</td><td class="c">9</td><td class="c">After Oct 20 only</td></tr>
+    <tr><td>Egypt</td><td class="num">$2,785</td><td class="num">$198</td><td class="c" style="color:var(--muted)">2</td><td class="c">No — on nightlife</td></tr>
+    <tr><td>Uzbekistan</td><td class="num">$2,140</td><td class="num" style="color:#1f6151;font-weight:800">$128</td><td class="c" style="color:var(--muted)">1</td><td class="c">No — on nightlife</td></tr>
+    <tr><td>Romania</td><td class="num">~$2,400</td><td class="num">~$170</td><td class="c">6</td><td class="c">No — it's Europe</td></tr>
+    <tr><td>India</td><td class="num">~$2,300</td><td class="num">~$115</td><td class="c" style="color:var(--muted)">3</td><td class="c">No — wrong trip type</td></tr>
+    <tr class="dead"><td>Mongolia</td><td class="num">—</td><td class="num">—</td><td class="c">2</td><td class="c">No — October is over</td></tr>
+  </tbody>
+</table>
+
+<div class="quote">
+  <span class="lbl">The verdict</span>
+  <p><strong>No. None of the civ homelands beat Japan, Korea, Turkey, or Thailand for this specific trip</strong> — and the reason is the same every time. You said the priority is nights out. Every AoE4 homeland that survives the safety screen is a history-and-scenery country with quiet evenings. They'd be spectacular trips. They wouldn't be <em>your</em> trip.</p>
+  <p style="margin-bottom:0"><strong>But file Uzbekistan.</strong> Visa-free as of January, the only Level 1 advisory on any list I've handed you, $2,140 for ten days, and $128 a night on the ground — the cheapest number in this entire project by a wide margin. It's the best-value trip I've found for you. When the four of you eventually want a trip that's about seeing something rather than closing bars, that's the one, and the window is right now before the crowds catch up.</p>
+</div>
+
+<footer>
+<p><strong>Sources</strong> — Prices and advisories current as of 8 August 2026. Romania and India figures are planning estimates, not fully built quotes — say the word and I'll price either properly.</p>
+<p>U.S. State Department travel advisories (Egypt Level 2, Uzbekistan Level 1, Iraq / Mali / Russia Level 4) · <a href="https://www.forbes.com/sites/alexledsom/2026/01/20/uzbekistan-now-visa-free-for-us-travelers-and-affordably-rewarding/">Forbes — Uzbekistan visa-free for US travelers</a> · Travelers Today (Uzbekistan rail costs and routing) · <a href="https://eg.usembassy.gov/security-alert-u-s-embassy-cairo-egypt-april-7-2026/">U.S. Embassy Cairo security alert</a> · Egypt Tours Portal and Nile Cruisers (Nile cruise pricing) · Amwal Al Ghad and Trading Economics (EGP rate) · PlanetWare and Romanian Friend (Romania costs) · Agate Travel (Mongolia October weather and costs) · AoE4World (civilization roster) · Travel figures for Japan, Korea, Turkey, and Thailand carried forward from the four-way comparison.</p>
+</footer>
+
+</div>
+</body>
+</html>

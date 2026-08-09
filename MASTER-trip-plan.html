@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Master Trip Plan — Five Options, Costed</title>
+<style>
+  :root{
+    --ink:#16130f;--ink2:#494139;--muted:#7d7268;--line:#e2dbd1;
+    --paper:#fbf8f4;--card:#fff;--accent:#9c3b1f;--accent2:#1f5c4d;
+    --gold:#8a6a1f;--blue:#3d4a63;--plum:#5c3557;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:ui-serif,Georgia,'Iowan Old Style','Times New Roman',serif;font-size:16.5px;line-height:1.62}
+  .wrap{max-width:960px;margin:0 auto;padding:56px 28px 90px}
+  header.top{border-bottom:3px solid var(--ink);padding-bottom:22px;margin-bottom:36px}
+  .kicker{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;
+    font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  h1{font-size:46px;line-height:1.06;margin:12px 0 10px;letter-spacing:-.022em}
+  .sub{color:var(--ink2);font-size:18px;max-width:64ch;margin:0}
+  .meta{font-family:ui-sans-serif,system-ui,sans-serif;font-size:12px;color:var(--muted);margin-top:16px;letter-spacing:.04em}
+  h2{font-size:15px;font-family:ui-sans-serif,system-ui,sans-serif;font-weight:700;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+    margin:60px 0 6px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  h3{font-size:27px;margin:34px 0 4px;letter-spacing:-.015em}
+  h3 .rank{color:var(--muted);font-size:20px;font-weight:400;margin-right:6px}
+  h4{font-size:16px;margin:26px 0 4px;font-family:ui-sans-serif,system-ui,sans-serif;
+    font-weight:700;letter-spacing:.03em}
+  p{margin:10px 0}
+  ul,ol{margin:10px 0 10px 20px;padding:0}
+  li{margin:5px 0}
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14.5px;
+    font-family:ui-sans-serif,system-ui,sans-serif}
+  th{text-align:left;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+    border-bottom:2px solid var(--ink);padding:8px 10px 8px 0;font-weight:700}
+  td{padding:9px 10px 9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+  td.num,th.num{text-align:right;padding-right:0;white-space:nowrap;font-variant-numeric:tabular-nums}
+  td.c,th.c{text-align:center}
+  tr.total td{border-top:2px solid var(--ink);border-bottom:none;font-weight:700;font-size:15.5px;padding-top:11px}
+  tr.hl td{background:#f2ede4}
+  .best{color:var(--accent2);font-weight:700}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:19px 23px;margin:18px 0}
+  .card.big{border-left:4px solid var(--accent2)}
+  .card.warn{border-left:4px solid var(--accent);background:#fdf6f3}
+  .card.note{border-left:4px solid var(--gold);background:#fcf9f0}
+  .card.alt{border-left:4px solid var(--blue);background:#f5f6f9}
+  .card h4{margin-top:0}
+  .card > :last-child{margin-bottom:0}
+  .tag{display:inline-block;font-family:ui-sans-serif,system-ui,sans-serif;font-size:10px;
+    letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:3px 9px;
+    border-radius:3px;margin-right:8px;vertical-align:5px}
+  .t1{background:#1f5c4d;color:#fff}
+  .t2{background:#3d4a63;color:#fff}
+  .t3{background:#9c3b1f;color:#fff}
+  .t4{background:#8a6a1f;color:#fff}
+  .t5{background:#5c3557;color:#fff}
+  .lede{font-size:19.5px;color:var(--ink2);border-left:3px solid var(--accent);padding-left:18px;margin:20px 0}
+  .route{font-family:ui-sans-serif,system-ui,sans-serif;font-size:15px;font-weight:700;
+    background:#f2ede4;border-radius:7px;padding:11px 15px;margin:14px 0;letter-spacing:.01em}
+  .cal{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;margin:10px 0 26px;
+    font-family:ui-sans-serif,system-ui,sans-serif;font-size:10.5px}
+  .cal div{padding:7px 2px;text-align:center;border-radius:4px;line-height:1.3}
+  .cal .hdr{background:none;font-weight:700;color:var(--muted);padding:3px 0}
+  .g{background:#cfe4dc;color:#124034}
+  .y{background:#f0e5c4;color:#5f4a10}
+  .r{background:#eeddd7;color:#8a3418}
+  .rowlab{font-family:ui-sans-serif,system-ui,sans-serif;font-size:12px;font-weight:700;
+    margin:14px 0 4px;letter-spacing:.02em}
+  footer{margin-top:70px;padding-top:22px;border-top:1px solid var(--line);
+    font-family:ui-sans-serif,system-ui,sans-serif;font-size:12.5px;color:var(--muted)}
+  @media(max-width:760px){h1{font-size:32px}.wrap{padding:34px 18px 60px}
+    .cal{grid-template-columns:repeat(6,1fr);font-size:10px}table{font-size:13px}}
+  @media print{body{background:#fff}h2{page-break-after:avoid}.card{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">Master Plan · v2 · Beaches Deprioritized · 4 Travelers · US East Coast</div>
+  <h1>Five Trips, Fully Costed</h1>
+  <p class="sub">Turkey and Thailand both survive. But taking beaches off the table changes the ranking more than anything else you've told me — and it promotes two options that were previously disqualified for exactly that reason.</p>
+  <div class="meta">Revised 8 August 2026 · Every option priced at two tiers: main and lean · Supersedes both prior documents</div>
+</header>
+
+<h2>What Changed</h2>
+
+<p class="lede">Beaches were the only thing keeping <strong>Japan</strong> out of first place and the only reason <strong>northern Vietnam</strong> looked like a compromise. Drop them and the whole board reshuffles.</p>
+
+<p>Three specific consequences:</p>
+<ol>
+  <li><strong>Turkey gets cheaper and better.</strong> Cutting Bodrum removes two travel days and a $700 leg. Istanbul + Cappadocia in 8 days is tighter, cheaper, and honestly the stronger version of that trip.</li>
+  <li><strong>Thailand loses its trump card.</strong> Thailand's islands are what make it beat everywhere else. Northern Thailand — Bangkok, Chiang Mai, Chiang Rai — is excellent and cheap, but <strong>northern Vietnam does the same thing for 20% less with more character.</strong> That's an honest call, and it moves Thailand down.</li>
+  <li><strong>Japan and Vietnam are now the two most interesting names on the list</strong> — for completely opposite reasons. Japan is the best trip. Vietnam is the best deal.</li>
+</ol>
+
+<h2>The Board</h2>
+
+<table>
+  <thead>
+    <tr><th>Option</th><th class="c">Days</th><th class="c">Nights on ground</th><th class="c">Main tier</th><th class="c">Lean tier</th><th class="c">Cost / day on ground</th></tr>
+  </thead>
+  <tbody>
+    <tr class="hl"><td><strong>1 · Japan</strong><br><span style="color:var(--muted)">Tokyo · Kyoto · Osaka</span></td><td class="c">11–12</td><td class="c">9</td><td class="c">$3,335–3,760</td><td class="c">$2,330–2,550</td><td class="c">$394</td></tr>
+    <tr class="hl"><td><strong>2 · Northern Vietnam</strong><br><span style="color:var(--muted)">Hanoi · Ninh Bình · Hạ Long · Sapa</span></td><td class="c">14</td><td class="c">11</td><td class="c">$2,335–2,750</td><td class="c">$1,600–1,800</td><td class="c best">$231</td></tr>
+    <tr><td><strong>3 · Turkey + Georgia</strong><br><span style="color:var(--muted)">Istanbul · Tbilisi · Kazbegi</span></td><td class="c">11</td><td class="c">9</td><td class="c">$2,925–3,300</td><td class="c">$1,900–2,100</td><td class="c">$346</td></tr>
+    <tr><td><strong>4 · Turkey solo</strong><br><span style="color:var(--muted)">Istanbul · Cappadocia</span></td><td class="c best">8</td><td class="c">6</td><td class="c">$2,955–3,300</td><td class="c">$1,820–1,920</td><td class="c">$521</td></tr>
+    <tr><td><strong>5 · Northern Thailand</strong><br><span style="color:var(--muted)">Bangkok · Chiang Mai · Chiang Rai</span></td><td class="c">12</td><td class="c">10</td><td class="c">$2,860–3,300</td><td class="c">$1,820–2,000</td><td class="c">$308</td></tr>
+  </tbody>
+</table>
+
+<div class="card big">
+<h4>The honest three-line verdict</h4>
+<p><strong>Want the best trip?</strong> Japan. Nothing else on this list is in the same category for food, cities, or the feeling that everything works. It's the least "cheap" but the yen at 157 makes it affordable in a way it hasn't been in thirty years.</p>
+<p><strong>Want the dollar to actually make you feel rich?</strong> Northern Vietnam. Fourteen days, $2,500, and you'll spend the whole trip laughing at what things cost. This is the one that delivers literally what you asked for in your first message.</p>
+<p style="margin-bottom:0"><strong>Want to be back at work in eight days?</strong> Turkey. Still the time-efficiency winner and still a great trip.</p>
+</div>
+
+<h2>When To Go</h2>
+<p style="font-size:14px;color:var(--muted);font-family:ui-sans-serif,system-ui,sans-serif;margin-bottom:4px">
+Green = go · Amber = workable · Red = don't</p>
+
+<div class="rowlab">JAPAN</div>
+<div class="cal">
+  <div class="hdr">J</div><div class="hdr">F</div><div class="hdr">M</div><div class="hdr">A</div><div class="hdr">M</div><div class="hdr">J</div><div class="hdr">J</div><div class="hdr">A</div><div class="hdr">S</div><div class="hdr">O</div><div class="hdr">N</div><div class="hdr">D</div>
+  <div class="y">cold</div><div class="y">cold</div><div class="y">peak</div><div class="y">peak</div><div class="g">good</div><div class="r">rain</div><div class="r">hot</div><div class="r">hot</div><div class="y">typhoon</div><div class="g">best</div><div class="g">best</div><div class="y">cold</div>
+</div>
+
+<div class="rowlab">NORTHERN VIETNAM</div>
+<div class="cal">
+  <div class="hdr">J</div><div class="hdr">F</div><div class="hdr">M</div><div class="hdr">A</div><div class="hdr">M</div><div class="hdr">J</div><div class="hdr">J</div><div class="hdr">A</div><div class="hdr">S</div><div class="hdr">O</div><div class="hdr">N</div><div class="hdr">D</div>
+  <div class="y">cold</div><div class="y">fog</div><div class="g">good</div><div class="g">best</div><div class="y">hot</div><div class="r">wet</div><div class="r">wet</div><div class="r">wet</div><div class="g">good</div><div class="g">best</div><div class="g">best</div><div class="y">cool</div>
+</div>
+
+<div class="rowlab">TURKEY</div>
+<div class="cal">
+  <div class="hdr">J</div><div class="hdr">F</div><div class="hdr">M</div><div class="hdr">A</div><div class="hdr">M</div><div class="hdr">J</div><div class="hdr">J</div><div class="hdr">A</div><div class="hdr">S</div><div class="hdr">O</div><div class="hdr">N</div><div class="hdr">D</div>
+  <div class="r">cold</div><div class="r">cold</div><div class="y">cool</div><div class="g">good</div><div class="g">best</div><div class="g">best</div><div class="r">hot</div><div class="r">hot</div><div class="g">best</div><div class="g">best</div><div class="y">cool</div><div class="r">cold</div>
+</div>
+
+<div class="rowlab">GEORGIA</div>
+<div class="cal">
+  <div class="hdr">J</div><div class="hdr">F</div><div class="hdr">M</div><div class="hdr">A</div><div class="hdr">M</div><div class="hdr">J</div><div class="hdr">J</div><div class="hdr">A</div><div class="hdr">S</div><div class="hdr">O</div><div class="hdr">N</div><div class="hdr">D</div>
+  <div class="r">snow</div><div class="r">snow</div><div class="y">thaw</div><div class="y">wet</div><div class="g">best</div><div class="g">best</div><div class="y">hot</div><div class="y">hot</div><div class="g">best</div><div class="g">best</div><div class="y">cool</div><div class="r">snow</div>
+</div>
+
+<div class="rowlab">NORTHERN THAILAND</div>
+<div class="cal">
+  <div class="hdr">J</div><div class="hdr">F</div><div class="hdr">M</div><div class="hdr">A</div><div class="hdr">M</div><div class="hdr">J</div><div class="hdr">J</div><div class="hdr">A</div><div class="hdr">S</div><div class="hdr">O</div><div class="hdr">N</div><div class="hdr">D</div>
+  <div class="g">best</div><div class="g">best</div><div class="r">smoke</div><div class="r">smoke</div><div class="y">hot</div><div class="y">wet</div><div class="y">wet</div><div class="y">wet</div><div class="y">wet</div><div class="y">wet</div><div class="g">best</div><div class="g">best</div>
+</div>
+
+<div class="card warn">
+<h4>Two seasonal landmines</h4>
+<p><strong>Chiang Mai burning season, March–April.</strong> Agricultural burning pushes air quality into hazardous territory — Chiang Mai regularly ranks among the worst AQI readings on earth during these months. Do not book northern Thailand in spring. This is the single biggest planning mistake people make with this route.</p>
+<p style="margin-bottom:0"><strong>October is the worst month for Thai beaches</strong> (both coasts wet simultaneously) — irrelevant now that beaches are off the table, but it's why the Thailand plan moved inland cleanly.</p>
+</div>
+
+<h2><span class="tag t1">Option 1</span> Japan — Tokyo, Kyoto, Osaka</h2>
+<p><strong>USD/JPY ≈ 157.6.</strong> Round trips JFK⇄Tokyo run roughly $850–1,050, with September historically the cheapest month on the route. Fourteen hours nonstop.</p>
+
+<div class="route">Day 0 depart → Tokyo 4N → Kyoto 3N → Osaka 2N → fly home · 11–12 days door to door</div>
+
+<div class="card note">
+<p style="margin:0"><strong>Be honest with yourselves about what Japan is.</strong> It is not a country where the dollar makes you rich. It is an <em>expensive country at a 35% discount</em> — a mid-range 10-day Tokyo–Kyoto–Osaka trip runs about ¥380,000, roughly $2,550 on the ground. What you're buying isn't cheapness, it's that <strong>every single thing works</strong> and the food floor is higher than most countries' ceiling. A $9 bowl of ramen in Tokyo beats a $60 dinner in most cities.</p>
+</div>
+
+<h4>The route</h4>
+<ul>
+  <li><strong>Tokyo, 4 nights.</strong> Shinjuku and Golden Gai for the bar-hopping (tiny six-seat bars, one street, dozens of them). Shibuya and Shimokitazawa. teamLab Borderless. A day trip to Hakone for onsen and Fuji views, or Nikko for the shrines. Sumo if it's a tournament month, Giants baseball if it isn't — the stadium atmosphere is unlike anything in the US.</li>
+  <li><strong>Kyoto, 3 nights.</strong> Fushimi Inari at 6am before the crowds, Arashiyama bamboo grove, Nishiki Market, Gion at dusk. Rent bikes — Kyoto is flat and it's the best way to move. One high-end kaiseki dinner (~$120–180 a head) is worth doing once.</li>
+  <li><strong>Osaka, 2 nights.</strong> The eating and drinking city. Dotonbori, Shinsekai, standing bars, okonomiyaki and kushikatsu. Rowdier and cheaper than Tokyo. Day trip to Nara (deer, giant Buddha) or Himeji Castle.</li>
+</ul>
+
+<h4>Cost per person — main tier</h4>
+<table>
+  <thead><tr><th>Line item</th><th>Detail</th><th class="num">Per person</th></tr></thead>
+  <tbody>
+    <tr><td>International airfare</td><td>JFK/EWR ⇄ HND/NRT, nonstop, economy</td><td class="num">$850–1,050</td></tr>
+    <tr><td>Rail</td><td>Shinkansen Tokyo–Kyoto–Osaka + Suica local. <em>Skip the 7-day JR Pass at ¥50,000 — it barely breaks even on this route.</em></td><td class="num">$250</td></tr>
+    <tr><td>Hotel — Tokyo, 4N</td><td>2 twin rooms, ~$140/room/night</td><td class="num">$280</td></tr>
+    <tr><td>Hotel — Kyoto, 3N</td><td>~$180/room/night (Kyoto is the priciest of the three)</td><td class="num">$270</td></tr>
+    <tr><td>Hotel — Osaka, 2N</td><td>~$110/room/night (cheapest of the three)</td><td class="num">$110</td></tr>
+    <tr><td>Food &amp; drink</td><td>9 days, including one kaiseki or high-end sushi night</td><td class="num">$720–850</td></tr>
+    <tr><td>Activities</td><td>teamLab $35 · Hakone day $120 · sumo or baseball $60 · onsen $50 · temples $80 · karaoke $60 · misc $50</td><td class="num">$455–550</td></tr>
+    <tr><td>Ground transport</td><td>Narita/Haneda transfers, metro top-ups</td><td class="num">$150</td></tr>
+    <tr><td>Buffer</td><td></td><td class="num">$250</td></tr>
+    <tr class="total"><td>Total, all-in</td><td></td><td class="num">$3,335 – $3,760</td></tr>
+  </tbody>
+</table>
+
+<div class="card alt">
+<h4>Lean tier — $2,330–2,550</h4>
+<p>Business hotels instead of 4-star (twin rooms at ~$90 — small but immaculate, and this is the normal way to travel Japan). Convenience store breakfasts, which in Japan are genuinely good. Standing bars and ramen counters instead of reservations. Cut the Hakone day. <strong>You lose almost nothing.</strong> Japan is the rare country where the budget version isn't a downgrade in quality, just in square footage.</p>
+</div>
+
+<h4>Logistics</h4>
+<ul>
+  <li><strong>Visa:</strong> None for US citizens, 90 days visa-free. Passport valid for the stay.</li>
+  <li><strong>Money:</strong> Japan is still surprisingly cash-heavy. 7-Eleven and Japan Post ATMs accept foreign cards; most bank ATMs don't. Carry ¥20,000–30,000.</li>
+  <li><strong>Suica/Pasmo:</strong> Add it to Apple Wallet before you land. Works on every train, bus, and convenience store nationwide.</li>
+  <li><strong>Luggage forwarding (takkyubin):</strong> ~$15 to ship your bag Tokyo→Kyoto overnight. Use it. Nobody hauls suitcases on a shinkansen.</li>
+  <li><strong>Tipping:</strong> Don't. It's mildly rude.</li>
+  <li><strong>Tattoos:</strong> Still barred from many onsen and gyms. Check ahead or book a private onsen (<em>kashikiri</em>).</li>
+  <li><strong>Safety:</strong> Among the lowest-crime countries on earth. Your realistic risks are getting lost and overspending.</li>
+</ul>
+
+<h2><span class="tag t2">Option 2</span> Northern Vietnam — The Value Play</h2>
+<p><strong>USD/VND ≈ 26,200.</strong> Round trips JFK⇄Hanoi from about $850. This is the trip where your original premise — "a country where the USD makes us rich" — is literally true. Mid-range travelers run $45–95 a day. Boutique hotels go for $30–70 a night. A great meal is $8.</p>
+
+<div class="route">Day 0 depart → Hanoi 4N → Ninh Bình 2N → Hạ Long overnight 1N → Sapa 3N → Hanoi 1N → fly home · 14 days</div>
+
+<ul>
+  <li><strong>Hanoi, 4 nights.</strong> The Old Quarter is chaos in the best way. Bia hơi corner — fresh draft beer for about 25 cents a glass, sitting on plastic stools on the sidewalk. Street food crawl (bún chả, phở, bánh mì, egg coffee). Train Street. War museums. Day trip to the Perfume Pagoda.</li>
+  <li><strong>Ninh Bình, 2 nights.</strong> "Hạ Long Bay on land" — limestone karsts rising out of rice paddies. Row a sampan through the Tràng An caves, bike between temples, climb Múa Cave for the view. Massively underrated and nearly empty compared to Hạ Long.</li>
+  <li><strong>Hạ Long / Lan Hạ Bay, 1 night.</strong> Overnight cruise, $150–250 each for a good mid-range boat. <strong>Book Lan Hạ Bay, not the main Hạ Long channel</strong> — same scenery, a fraction of the boat traffic. Kayaking, swimming, sunrise on deck.</li>
+  <li><strong>Sapa, 3 nights.</strong> Mountains, terraced rice fields, hill-tribe villages. Trek with a local guide (~$90/day for the group). Overnight train or a 5-hour bus from Hanoi. <strong>Alternative for the more adventurous:</strong> swap Sapa for the <em>Hà Giang Loop</em> — 3–4 days on the back of a motorbike with an "easy rider" driver through the most dramatic scenery in Southeast Asia. Around $200–280 each all-in including driver, fuel, food, and lodging.</li>
+</ul>
+
+<h4>Cost per person — main tier</h4>
+<table>
+  <thead><tr><th>Line item</th><th>Detail</th><th class="num">Per person</th></tr></thead>
+  <tbody>
+    <tr><td>International airfare</td><td>JFK/EWR ⇄ HAN, 1–2 stops</td><td class="num">$850–1,100</td></tr>
+    <tr><td>E-visa</td><td>90-day multiple entry, applied online in advance</td><td class="num">$25</td></tr>
+    <tr><td>Hotel — Hanoi, 4N + 1N</td><td>2 rooms, ~$70/room/night boutique Old Quarter</td><td class="num">$175</td></tr>
+    <tr><td>Hotel — Ninh Bình, 2N</td><td>~$60/room/night</td><td class="num">$60</td></tr>
+    <tr><td>Hạ Long / Lan Hạ cruise, 1N</td><td>Mid-range boat, all meals included, per person</td><td class="num">$200</td></tr>
+    <tr><td>Hotel — Sapa, 3N</td><td>~$70/room/night</td><td class="num">$105</td></tr>
+    <tr><td>Food &amp; drink</td><td>11 days at ~$30/day — and that is eating extremely well</td><td class="num">$330–420</td></tr>
+    <tr><td>Activities</td><td>Tràng An boat &amp; bikes $50 · Sapa guided trek $90 · street food tour $30 · cooking class $30 · museums &amp; entries $40</td><td class="num">$240–300</td></tr>
+    <tr><td>Ground transport</td><td>Overnight train, limousine vans, Grab, transfers</td><td class="num">$150</td></tr>
+    <tr><td>Buffer</td><td></td><td class="num">$200</td></tr>
+    <tr class="total"><td>Total, all-in</td><td></td><td class="num">$2,335 – $2,750</td></tr>
+  </tbody>
+</table>
+
+<div class="card alt">
+<h4>Lean tier — $1,600–1,800</h4>
+<p>Guesthouses at $25–35 a room, the cheaper Hạ Long boat, street food exclusively, sleeper bus instead of the train. <strong>Fourteen days abroad for under two thousand dollars including the flight.</strong> There is no other option on this list that can do that.</p>
+</div>
+
+<h4>Logistics</h4>
+<ul>
+  <li><strong>Visa:</strong> US passports get <strong>no exemption</strong> — you need an e-visa. Apply online at the official immigration portal (evisa.gov.vn), $25, 90 days, multiple entry. Allow 5–7 business days. Use only the government site; the lookalike sites charge triple.</li>
+  <li><strong>Money:</strong> Dong at ~26,200/USD, which means you'll be a millionaire and constantly miscounting zeros. Cash-dominant outside hotels. Withdraw from bank ATMs.</li>
+  <li><strong>Apps:</strong> Grab (rides + food), Klook for tours, Google Translate offline.</li>
+  <li><strong>Scams:</strong> Taxi meter tampering (use Grab or Mai Linh / Vinasun only), the shoe-repair grab, motorbike rental damage claims. Same category as Thailand — annoying, not dangerous.</li>
+  <li><strong>Traffic:</strong> Crossing the street in Hanoi is a skill. Walk slowly and predictably; the scooters flow around you. Do not stop mid-crossing.</li>
+  <li><strong>The catch:</strong> 22–24 hours each way with 1–2 stops. This trip only works at 14 days, which you've said is on the table.</li>
+</ul>
+
+<h2><span class="tag t3">Option 3</span> Turkey + Georgia — Two Countries, One Flight Path</h2>
+<p>You connect through Istanbul to reach Tbilisi anyway, and <strong>Turkish Airlines permits free stopovers</strong> — so the second country is close to free. This is the best "two countries" play available to you and it's built entirely on culture, food, mountains, and wine. No beach required.</p>
+
+<div class="route">Day 0 depart → Istanbul 4N → Tbilisi 3N → Kazbegi 2N → fly home via Istanbul · 11 days</div>
+
+<h4>Istanbul, 4 nights</h4>
+<p>Lira at ~47.7/USD. Hagia Sophia, Blue Mosque, Basilica Cistern, the Grand Bazaar. A private Bosphorus charter for the four of you runs $200–280 total. A 16th-century hammam at Kılıç Ali Paşa, $60–90. Michelin-recognized dinners at Mikla or Neolokal for $70–95 a head. Nightlife in Karaköy and Beyoğlu — rooftops, cocktail bars, and the Ortaköy waterfront clubs if you want the loud version. <em>Note: club dress codes are enforced on men.</em></p>
+
+<h4>Tbilisi, 3 nights</h4>
+<p>Mid-range boutique hotels in restored historic buildings run <strong>$55–90 a night for the room</strong>. Sulfur bathhouses in Abanotubani (private room, ~$25). Khinkali and khachapuri. <strong>Bassiani</strong> — a techno club inside a former Soviet swimming pool under the national stadium, with a genuine global reputation. Day trip to the <strong>Kakheti wine region</strong>: Georgia has been making wine in clay qvevri for 8,000 years, and a full day of tastings plus lunch runs about $70 each.</p>
+
+<h4>Kazbegi, 2 nights</h4>
+<p>Three hours north up the Georgian Military Highway into the Caucasus. Gergeti Trinity Church sits alone on a ridge under a 16,500-foot peak — it's one of the great views on the continent. 4×4 up or hike it. Guesthouses at $30–45 a night including home-cooked dinner and more wine than you asked for. Paragliding off the ridge, ~$60.</p>
+
+<h4>Cost per person — main tier</h4>
+<table>
+  <thead><tr><th>Line item</th><th>Detail</th><th class="num">Per person</th></tr></thead>
+  <tbody>
+    <tr><td>International airfare</td><td>JFK ⇄ IST ⇄ TBS with a free Istanbul stopover on Turkish</td><td class="num">$800–1,000</td></tr>
+    <tr><td>Hotel — Istanbul, 4N</td><td>2 rooms, ~$220/room/night</td><td class="num">$440</td></tr>
+    <tr><td>Hotel — Tbilisi, 3N</td><td>2 rooms, ~$80/room/night boutique</td><td class="num">$120</td></tr>
+    <tr><td>Guesthouse — Kazbegi, 2N</td><td>~$70/room/night with meals</td><td class="num">$70</td></tr>
+    <tr><td>Food &amp; drink</td><td>Istanbul 4 days @ $95 · Georgia 5 days @ $50</td><td class="num">$630–720</td></tr>
+    <tr><td>Activities</td><td>Bosphorus charter $65 · hammam $75 · Istanbul entries $100 · Kakheti wine day $70 · Gergeti 4×4 $40 · sulfur baths $25 · paragliding $60</td><td class="num">$435–500</td></tr>
+    <tr><td>Ground transport</td><td>Transfers, Bolt in Tbilisi, Military Highway driver</td><td class="num">$180</td></tr>
+    <tr><td>Buffer</td><td></td><td class="num">$250</td></tr>
+    <tr class="total"><td>Total, all-in</td><td></td><td class="num">$2,925 – $3,300</td></tr>
+  </tbody>
+</table>
+
+<div class="card alt">
+<h4>Lean tier — $1,900–2,100</h4>
+<p>4-star boutiques in Istanbul at ~$95/room, guesthouses throughout Georgia, marshrutka minibuses instead of private drivers, one paid activity per city. Georgia at the lean tier is almost comically cheap — $30–45 buys you a private room, a home-cooked dinner, and a family that adopts you.</p>
+</div>
+
+<div class="card">
+<h4>Logistics worth knowing</h4>
+<ul style="margin-bottom:0">
+  <li><strong>Visas:</strong> US citizens are visa-free in Turkey (90 days) and visa-free in Georgia (365 days — one of the most generous policies anywhere).</li>
+  <li><strong>Georgia safety:</strong> Low crime; pickpocketing in crowds is the realistic risk. <strong>Avoid political demonstrations</strong>, which are frequent in central Tbilisi. Do not travel to the Russian-occupied regions of Abkhazia and South Ossetia.</li>
+  <li><strong>Use Bolt</strong> in Tbilisi, not street taxis. Old Town exchange kiosks post misleading rates — use a bank.</li>
+  <li><strong>The Istanbul bar scam:</strong> A friendly English-speaking local walks your group to a bar; the bill arrives for thousands and the door is blocked. It runs specifically on groups of foreign men. <strong>Never follow a stranger to a venue.</strong> Pick your own bars.</li>
+  <li><strong>Alcohol in Turkey is heavily taxed</strong> — $6–9 a beer. Georgia is the opposite: wine is nearly free.</li>
+</ul>
+</div>
+
+<h2><span class="tag t4">Option 4</span> Turkey Solo — The Time-Efficient Trip</h2>
+<p>Unchanged from the original plan, minus Bodrum. <strong>Eight days door to door, two of them in the air.</strong> Still the winner if anyone's PTO is tight — nothing else on this list gets you a real international trip inside a single work week plus two weekends.</p>
+
+<div class="route">Day 0 depart → Istanbul 4N → Cappadocia 2N → fly home · 8 days door to door</div>
+
+<p>Istanbul as described above. <strong>Cappadocia:</strong> sunrise hot air balloon ($180–250, book direct with Butterfly, Royal, or Voyager and schedule it your <em>first</em> morning so you have a weather backup day), a real cave hotel, ATV through Love Valley at golden hour, the Göreme Open-Air Museum, and the Derinkuyu underground city.</p>
+
+<table>
+  <thead><tr><th>Line item</th><th class="num">Main</th><th class="num">Lean</th></tr></thead>
+  <tbody>
+    <tr><td>International airfare</td><td class="num">$700–900</td><td class="num">$600–700</td></tr>
+    <tr><td>Domestic flights (IST ⇄ ASR)</td><td class="num">$90</td><td class="num">$90</td></tr>
+    <tr><td>Hotel — Istanbul, 4N</td><td class="num">$440</td><td class="num">$190</td></tr>
+    <tr><td>Hotel — Cappadocia, 2N cave suite</td><td class="num">$300</td><td class="num">$140</td></tr>
+    <tr><td>Food &amp; drink, 6 days</td><td class="num">$570–650</td><td class="num">$270</td></tr>
+    <tr><td>Activities</td><td class="num">$485–550</td><td class="num">$310</td></tr>
+    <tr><td>Ground transport</td><td class="num">$120</td><td class="num">$70</td></tr>
+    <tr><td>Buffer</td><td class="num">$250</td><td class="num">$150</td></tr>
+    <tr class="total"><td>Total, all-in</td><td class="num">$2,955–3,300</td><td class="num">$1,820–1,920</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Want 10 days instead of 8?</strong> Add <strong>Ephesus and Pamukkale</strong> (2 nights, fly IST→İzmir ~$50) rather than the beach. Roman ruins on a scale most people have never seen, plus the white travertine terraces at Pamukkale. Adds roughly $450 per person.</p>
+
+<h2><span class="tag t5">Option 5</span> Northern Thailand</h2>
+<p>Still a very good trip — it just no longer wins anything now that the islands are out. <strong>USD/THB ≈ 33.</strong> Northern Thailand runs 40–60% cheaper than the Thai islands.</p>
+
+<div class="route">Day 0 depart → Bangkok 4N → Chiang Mai 4N → Chiang Rai or Pai 2N → fly home · 12 days</div>
+
+<ul>
+  <li><strong>Bangkok, 4 nights.</strong> Grand Palace, Wat Pho, Wat Arun. Yaowarat Road in Chinatown after dark — one of the best eating streets anywhere. <strong>Muay Thai at Rajadamnern Stadium</strong>: ringside from 2,500 THB (~$75), club class 1,900 THB, VIP with drinks 4,500 THB. Book the real stadium, not a tourist show. Ayutthaya day trip (~$50). Rooftops at Vertigo or Sky Bar; bars in Thonglor and Ekkamai.</li>
+  <li><strong>Chiang Mai, 4 nights.</strong> Ethical elephant sanctuary — no riding, no bullhooks, ~$70 including transport and lunch; book weeks ahead. Jungle ziplines, Doi Suthep at sunset, Sticky Waterfalls, a Thai cooking class (~$35). Nimman district for nightlife and cafés.</li>
+  <li><strong>Chiang Rai or Pai, 2 nights.</strong> Chiang Rai for the White Temple and Blue Temple and the Golden Triangle. Pai for the mountain-hippie version — hot springs, canyons, and a 762-curve road to get there that you will feel.</li>
+</ul>
+
+<table>
+  <thead><tr><th>Line item</th><th class="num">Main</th><th class="num">Lean</th></tr></thead>
+  <tbody>
+    <tr><td>International airfare (JFK ⇄ BKK)</td><td class="num">$850–1,100</td><td class="num">$750</td></tr>
+    <tr><td>Domestic flights (BKK ⇄ CNX)</td><td class="num">$80</td><td class="num">$60</td></tr>
+    <tr><td>Hotels — 10 nights across 3 cities</td><td class="num">$640</td><td class="num">$260</td></tr>
+    <tr><td>Food &amp; drink, 10 days</td><td class="num">$450–550</td><td class="num">$280</td></tr>
+    <tr><td>Activities</td><td class="num">$460–550</td><td class="num">$240</td></tr>
+    <tr><td>Ground transport</td><td class="num">$130</td><td class="num">$80</td></tr>
+    <tr><td>Buffer</td><td class="num">$250</td><td class="num">$150</td></tr>
+    <tr class="total"><td>Total, all-in</td><td class="num">$2,860–3,300</td><td class="num">$1,820–2,000</td></tr>
+  </tbody>
+</table>
+
+<div class="card">
+<h4>Thailand logistics</h4>
+<ul style="margin-bottom:0">
+  <li><strong>Visa:</strong> US citizens get a <strong>30-day visa exemption</strong> — reduced from 60 days in a recent change. A 12-day trip is fine, but confirm the rule before booking and have onward travel proof ready.</li>
+  <li><strong>Airport transport:</strong> Suvarnabhumi to central Bangkok is 250–400 THB metered. Anyone quoting 500–1,000 THB flat is running the standard hustle. Use Grab.</li>
+  <li><strong>Never surrender your passport as a rental deposit.</strong> The motorbike and jet ski "damage" scam depends on it. Photograph every scratch before you take keys.</li>
+  <li><strong>"The Grand Palace is closed today"</strong> — it isn't. That's the gem-shop redirect.</li>
+  <li><strong>Tourist Police: 1155.</strong> 24/7, English-speaking, free.</li>
+</ul>
+</div>
+
+<h2>Also Considered, Not Recommended Now</h2>
+<ul>
+  <li><strong>Cape Town, South Africa</strong> — arguably the best luxury-per-dollar destination on earth: 4-star from ~$200, three-course dinners under $25, wine country, Table Mountain, and a safari add-on. Beaches were never its main pitch, so it survives your new constraint. <strong>But it's Southern Hemisphere</strong> — their summer is December–March, and going now lands in their winter. Put it on the calendar for winter 2026–27 and it's a serious contender.</li>
+  <li><strong>Colombia</strong> — still cut. State Department <strong>Level 3: Reconsider Travel</strong>, with documented drugging, extortion, and armed robbery specifically targeting groups of foreign men at night. Convenient and cheap, but it fails your stated bar.</li>
+  <li><strong>Malaysia, Cambodia, South Korea, Portugal, Morocco, Argentina, Mexico</strong> — each loses on at least one axis: not cheap enough to matter, too far for the payoff, or no meaningful currency advantage. Detail in the original document.</li>
+</ul>
+
+<h2>How To Actually Decide</h2>
+<ol>
+  <li><strong>Lock the window first, not the country.</strong> Get all four calendars open and find the weeks that work. Then read the season grid above — it eliminates half the list immediately. October points at Turkey or Vietnam. February points at Japan or northern Thailand. May points at Turkey or Georgia.</li>
+  <li><strong>Then answer one question: is this a money trip or a trip trip?</strong> If the point is that the dollar goes far — Vietnam, and it isn't close. If the point is the best two weeks of the year — Japan, and it isn't close.</li>
+  <li><strong>Check the weakest PTO balance in the group.</strong> That number caps everything. Eight days means Turkey. Fourteen unlocks Vietnam and Thailand.</li>
+  <li><strong>Don't optimize the last $400.</strong> The spread across all five main tiers is about $1,400 — real, but not decisive on a trip this size. The lean tiers are where the actual money is, and every lean tier here is a good trip, not a compromised one.</li>
+</ol>
+
+<div class="card big">
+<p style="margin:0"><strong>If you asked me to just pick:</strong> Northern Vietnam in late October, lean-to-mid tier, fourteen days, around $2,600 a head. It's the only option that delivers the exact thing you described in your first message — a country where the dollar makes you rich — while also being a genuinely great trip rather than a cheap one. Japan is the better <em>trip</em>. Vietnam is the better <em>answer to the question you asked</em>.</p>
+</div>
+
+<footer>
+<p><strong>Sources</strong> — Exchange rates, advisories, and prices current as of 8 August 2026. Treat totals as planning ranges, not quotes. Verify visa rules and travel advisories directly before booking.</p>
+<p>Trading Economics (USD/TRY, THB, VND, JPY) · U.S. Embassy Türkiye, Colombia, and Thailand advisories · Expedia, Skyscanner, Momondo (airfare) · BluePlanet Self Guide Japan and Simbye (Japan hotel and daily-budget data) · Machu Picchu Travel and BestPrice Travel (northern Vietnam itineraries and costs) · Custom Asia Travel and Wander On Less (Vietnam budgets) · Wander-Lush, The Georgian Guide, and Trip Budget Calculator (Georgia costs and safety) · Hotel Perula and Istanbul Tours (Istanbul costs) · Rajadamnern Stadium (Muay Thai pricing) · Visit Thailand Today and Radical Storage (Thailand budgets) · BalloonScanner (Cappadocia balloon pricing) · AFAR and Travelers Today (strong-dollar destination analysis)</p>
+</footer>
+
+</div>
+</body>
+</html>

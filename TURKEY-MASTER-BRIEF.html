@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Türkiye 2027 — Master Brief</title>
+<style>
+  :root{
+    --ink:#14120f;--ink2:#4a423a;--muted:#7f7469;--line:#e3dcd2;--paper:#fbf8f4;--card:#fff;
+    --tr:#9c3b1f;--grn:#1f6151;--gold:#8a6a1f;--night:#3d3560;--blue:#2d4a7a;--red:#8f2020;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;font-size:16px;line-height:1.62}
+  .wrap{max-width:960px;margin:0 auto;padding:50px 24px 90px}
+  header.top{border-bottom:3px solid var(--ink);padding-bottom:22px;margin-bottom:26px}
+  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--tr);font-weight:800}
+  h1{font-size:54px;line-height:.98;margin:12px 0 10px;letter-spacing:-.038em;font-weight:800}
+  .sub{color:var(--ink2);font-size:18px;max-width:60ch;margin:0}
+  .meta{font-size:12px;color:var(--muted);margin-top:14px}
+  h2{font-size:13px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--tr);
+    margin:56px 0 6px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+  h3{font-size:23px;margin:30px 0 4px;letter-spacing:-.015em;font-weight:800}
+  h4{font-size:16px;margin:20px 0 3px;font-weight:800}
+  p{margin:9px 0}ul,ol{margin:8px 0 8px 19px;padding:0}li{margin:6px 0}
+
+  .toc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 22px;margin:22px 0;
+    columns:2;column-gap:32px;font-size:14.5px}
+  .toc a{color:var(--ink2);text-decoration:none;display:block;padding:3px 0}
+  .toc a:hover{color:var(--tr)}
+
+  .band{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0}
+  .bb{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 15px}
+  .bb .l{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:800}
+  .bb .v{font-size:23px;font-weight:800;letter-spacing:-.02em;margin-top:5px;line-height:1.15}
+  .bb .s{font-size:11.5px;color:var(--muted);margin-top:2px}
+
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px}
+  th{text-align:left;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    border-bottom:2px solid var(--ink);padding:9px 9px 9px 0;font-weight:800}
+  td{padding:9px 9px 9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+  td.num,th.num{text-align:right;padding-right:0;font-variant-numeric:tabular-nums;white-space:nowrap}
+  td.c,th.c{text-align:center}
+  td:first-child{font-weight:700}
+  tr.total td{border-top:2px solid var(--ink);border-bottom:none;font-weight:800;font-size:16px;padding-top:11px}
+  tr.hi td{background:#f1ece2}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:18px 22px;margin:16px 0}
+  .card.big{border-left:4px solid var(--grn)}
+  .card.warn{border-left:4px solid var(--tr);background:#fdf6f3}
+  .card.law{border-left:4px solid var(--red);background:#fcf2f2}
+  .card.note{border-left:4px solid var(--gold);background:#fcf9f0}
+  .card.night{border-left:4px solid var(--night);background:#f6f5fa}
+  .card>:last-child{margin-bottom:0}.card h3,.card h4{margin-top:0}
+  .rec{display:inline-block;font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;
+    padding:3px 9px;border-radius:3px;background:#1f6151;color:#fff;margin-left:8px;vertical-align:2px}
+
+  .step{border-left:2px solid var(--line);padding:2px 0 2px 22px;margin:20px 0;position:relative}
+  .step::before{content:"";position:absolute;left:-7px;top:9px;width:12px;height:12px;border-radius:50%;
+    background:var(--tr);border:2px solid var(--paper)}
+  .step.done::before{background:var(--grn)}
+  .step .when{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--tr)}
+  .step .what{font-size:19px;font-weight:800;margin:1px 0 4px;letter-spacing:-.01em}
+  .step p{margin:4px 0 0;font-size:15px}
+
+  .pick{display:grid;grid-template-columns:180px 1fr;gap:14px;padding:11px 0;
+    border-bottom:1px solid var(--line);font-size:14.5px}
+  .pick:last-child{border-bottom:none}
+  .pick .nm{font-weight:800}
+  .pick .nm small{display:block;font-weight:600;font-size:11.5px;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.07em;margin-top:1px}
+  .pick p{margin:0}
+
+  .quote{background:#14120f;color:#f4efe7;border-radius:12px;padding:24px 26px;margin:24px 0;line-height:1.66}
+  .quote strong{color:#fff}
+  .quote .lbl{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#a09585;
+    font-weight:800;display:block;margin-bottom:10px}
+  footer{margin-top:64px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+  @media(max-width:780px){h1{font-size:35px}.wrap{padding:32px 16px 60px}.band{grid-template-columns:repeat(2,1fr)}
+    .toc{columns:1}table{font-size:13px}.pick{grid-template-columns:1fr;gap:3px}}
+  @media print{body{background:#fff}.card,.quote,.step{page-break-inside:avoid}h2{page-break-after:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">Master Brief · Türkiye · Four Travelers · Share This With The Group</div>
+  <h1>Istanbul &amp;<br>Cappadocia 2027</h1>
+  <p class="sub">Everything settled in one document: the month, the dates, entry rules, the laws that actually matter, a month-by-month action plan, hotels, historical sites, Michelin restaurants, nightlife, and the full budget.</p>
+  <div class="meta">Prepared 8 August 2026 · Prices in Aug 2026 dollars — quote the group $4,200 to cover drift · Verify visa rules and advisories before booking</div>
+</header>
+
+<div class="toc">
+  <a href="#when">1 · When to go</a>
+  <a href="#entry">2 · Entry &amp; passports</a>
+  <a href="#laws">3 · Laws you must know</a>
+  <a href="#plan">4 · Plan of action</a>
+  <a href="#hotels">5 · Hotels</a>
+  <a href="#sites">6 · Historical sites &amp; prices</a>
+  <a href="#food">7 · Michelin &amp; food</a>
+  <a href="#night">8 · Nightlife</a>
+  <a href="#capp">9 · Cappadocia</a>
+  <a href="#move">10 · Getting around</a>
+  <a href="#money">11 · The budget</a>
+  <a href="#pitch">12 · The pitch</a>
+</div>
+
+<div class="band">
+  <div class="bb"><div class="l">Dates</div><div class="v">May 20–28</div><div class="s">2027</div></div>
+  <div class="bb"><div class="l">Per person</div><div class="v">$3,965</div><div class="s">all in, nice tier</div></div>
+  <div class="bb"><div class="l">Days off work</div><div class="v">6</div><div class="s">one weekend inside</div></div>
+  <div class="bb"><div class="l">Visa</div><div class="v">None</div><div class="s">US passports, 90 days</div></div>
+</div>
+
+<h2 id="when">1 · When To Go</h2>
+
+<p><strong>Recommendation: Thursday 20 May – Friday 28 May 2027.</strong> Three reasons those exact dates:</p>
+<ul>
+  <li><strong>It clears Kurban Bayramı.</strong> Eid al-Adha runs 15–19 May 2027. During it the Grand Bazaar and Spice Bazaar close entirely, banks shut, ATMs run dry, and domestic travel is chaos. It ends the evening of the 19th and everything reopens on the 20th.</li>
+  <li><strong>Saturday 22 May lands mid-trip</strong> — that's your big night, when Istanbul's clubs actually run at capacity.</li>
+  <li><strong>Cappadocia balloons fly roughly 90% of May mornings</strong>, among the highest fly rates of the year.</li>
+</ul>
+
+<h4>May vs September — the honest comparison</h4>
+<table>
+  <thead><tr><th></th><th>May</th><th>September</th></tr></thead>
+  <tbody>
+    <tr><td>Weather</td><td>Dry and mild, little rain. Istanbul 7–23°C, Cappadocia 18–24°C days with cold 4–8°C mornings.</td><td>Warmer, 22–26°C. Occasional showers, and you feel autumn in the evenings.</td></tr>
+    <tr><td>Crowds</td><td>Climbing fast — May is the start of the tourist ramp.</td><td>The sweet spot after the August peak. Heat drops, crowds thin.</td></tr>
+    <tr><td>Balloons</td><td>~90% fly rate.</td><td>~85% fly rate, wine harvest in the valleys.</td></tr>
+    <tr><td>Prices</td><td>Hotels 10–15% below the July peak.</td><td>Similar, slightly better late in the month.</td></tr>
+    <tr><td>Verdict</td><td><strong>Better weather reliability. Go now if you can.</strong></td><td>Thinner crowds. The fallback if dates slip.</td></tr>
+  </tbody>
+</table>
+<p><strong>Both are excellent and it's close.</strong> Locals tend to rate September marginally higher for crowds; May wins on weather consistency and the balloon fly rate. If May 2027 doesn't work for everyone, <strong>mid-to-late September 2027</strong> is the alternate — same plan, same budget.</p>
+
+<h2 id="entry">2 · Entry &amp; Passports</h2>
+
+<div class="card big">
+<h4>You need no visa. You do need to check your passports today.</h4>
+<ul style="margin-bottom:0">
+  <li><strong>US citizens are visa-free in Türkiye for 90 days</strong> within any 180-day period, for tourism. No e-visa, no application, no fee. This changed in 2024 — older guides still say you need an e-visa. You don't.</li>
+  <li><strong>Passport must be valid at least six months beyond entry.</strong> For a 20 May 2027 arrival that means <strong>valid through at least 20 November 2027</strong>. Check all four passports this week — renewals can take months.</li>
+  <li><strong>At least one blank page</strong> for the entry stamp.</li>
+  <li><strong>No vaccination requirements</strong> for US travelers.</li>
+  <li><strong>Register with STEP</strong> (the State Department's traveler enrollment program) before you fly. Free, two minutes, and it means the embassy can reach you.</li>
+  <li><strong>Travel insurance</strong> is not required for entry but get it anyway — one policy each, roughly $50–90 for the trip.</li>
+</ul>
+</div>
+
+<h2 id="laws">3 · Laws You Must Know</h2>
+
+<p>Most of Türkiye feels like anywhere in Europe. But there are four areas where the law is genuinely stricter than you'd expect, and two of them have put tourists in prison. Read this section properly.</p>
+
+<div class="card law">
+<h4>Do not insult the President, Atatürk, the flag, or the Turkish state</h4>
+<p>This is not a formality — it is actively prosecuted, including for social media posts made by foreigners.</p>
+<ul style="margin-bottom:0">
+  <li><strong>Article 299</strong> — insulting the President of the Republic is a criminal offense.</li>
+  <li><strong>Law 5816</strong> — insulting the memory of Mustafa Kemal Atatürk, or defacing statues and images of him, <strong>carries up to five years in prison.</strong> The same applies to the Turkish flag.</li>
+  <li><strong>Article 301</strong> — publicly denigrating the Turkish nation or state institutions.</li>
+</ul>
+<p style="margin-bottom:0"><strong>Practical rule for the group: no political jokes, no political posts while you're in the country, and treat Atatürk the way you'd treat a war memorial.</strong> His portrait is everywhere and he is genuinely revered. This costs you nothing to respect.</p>
+</div>
+
+<div class="card law">
+<h4>Do not take home anything old — including a rock</h4>
+<p>Exporting antiquities or historical artifacts is a serious crime carrying <strong>5 to 12 years in prison plus heavy fines.</strong> Tourists have been arrested at the airport for picking up an interesting stone or a shard of broken pottery at an ancient site.</p>
+<p style="margin-bottom:0"><strong>Rules:</strong> Take nothing off the ground at any ruin or beach. If you buy carpets, ceramics, coins or anything that might read as antique, buy only from <strong>authorized dealers</strong> and get a <strong>museum certificate plus the receipt</strong> for each item. Keep both in your carry-on. Without those papers at departure you can be detained.</p>
+</div>
+
+<div class="card warn">
+<h4>Alcohol — the rule that sounds scary but isn't</h4>
+<p><strong>Retail sale of alcohol is banned from 10pm to 6am.</strong> Shops, supermarkets and Tekel stores cannot sell after 10pm. Spirits above 40% ABV are off retail shelves entirely. Legal drinking age is 18.</p>
+<p><strong>This does not affect your nights out.</strong> Licensed bars, restaurants and clubs keep serving well past midnight — bars close around 1–2am, clubs run to 4–5am. The ban is on shops, not venues.</p>
+<p style="margin-bottom:0"><strong>Two practical notes:</strong> buy anything you want in the hotel room before 10pm, and use the duty-free on arrival at IST — Turkish alcohol tax is steep, so a bottle bought at the airport saves real money. Public street drinking is restricted and socially frowned on. Drink in venues, not on the street.</p>
+</div>
+
+<div class="card law">
+<h4>Drugs — zero tolerance, no exceptions</h4>
+<p style="margin-bottom:0">Penalties are severe and apply to possession of any quantity, including cannabis. There is no tourist leniency and no version of this that ends well. Don't carry anything, don't accept anything, and be careful about who's in your group at a club.</p>
+</div>
+
+<h4>The rest of the list</h4>
+<table>
+  <tbody>
+    <tr><td>Drones</td><td>Register with the Turkish government before flying anything over 500g. Max altitude 120m. Commercial use needs separate approval. Easiest answer for a nine-day trip: leave it home.</td></tr>
+    <tr><td>Photography</td><td>Never photograph military installations, police, or government buildings. Signs are posted; take them seriously.</td></tr>
+    <tr><td>Mosques</td><td>Free to enter. Long pants, shoulders covered, shoes off. Avoid Friday midday prayers. Women need a head covering — usually provided at the door.</td></tr>
+    <tr><td>Smoking</td><td>Banned indoors in all public places, including bars and restaurants. Enforced.</td></tr>
+    <tr><td>LGBTQ+</td><td>Homosexuality is legal, but there are no anti-discrimination protections and Pride marches in Istanbul have been banned since 2015. Attitudes in Beyoğlu and Kadıköy are liberal; be more discreet elsewhere.</td></tr>
+    <tr><td>ID</td><td>Carry a photo of your passport on your phone. Police can ask for identification.</td></tr>
+    <tr><td>Taxis</td><td>Refusing a fare or not running the meter is illegal — but easier to avoid entirely by using BiTaksi or Uber.</td></tr>
+  </tbody>
+</table>
+
+<h2 id="plan">4 · Plan Of Action</h2>
+
+<div class="step">
+  <div class="when">This week — August 2026</div>
+  <div class="what">Check all four passports</div>
+  <p>Every passport must be valid through <strong>20 November 2027</strong>. If anyone's expires before then, they start the renewal now. This is the only thing that can quietly kill the trip nine months from now.</p>
+</div>
+
+<div class="step">
+  <div class="when">August – October 2026</div>
+  <div class="what">Lock the dates. No money yet.</div>
+  <p>Get all four to commit to <strong>20–28 May 2027</strong> in writing. Nothing is booked, nothing is paid. This is the step that historically kills group trips, and it's free.</p>
+</div>
+
+<div class="step">
+  <div class="when">October 2026</div>
+  <div class="what">Everyone requests PTO. Set fare alerts.</div>
+  <p>Six workdays, requested seven months out — nobody's manager says no to that. Set Google Flights alerts on JFK/EWR → IST for the date range so you learn what a good fare looks like instead of guessing in January.</p>
+</div>
+
+<div class="step">
+  <div class="when">November 2026</div>
+  <div class="what">Book TURK Fatih Tutak — if you want the two-star</div>
+  <p>Türkiye's only two-Michelin-star restaurant books <strong>six-plus months ahead</strong>. For a May trip that means reserving in November. If the group wants it, this is the earliest hard deadline on the whole calendar. Skip it and the one-stars are easier.</p>
+</div>
+
+<div class="step">
+  <div class="when">January – February 2027</div>
+  <div class="what">Book the flights. This is the commitment.</div>
+  <p>Three to four months out is the pricing sweet spot for international economy. All four book the same flight on the same day. Turkish Airlines nonstop from JFK or EWR, ten hours. Once four tickets exist, the trip exists.</p>
+</div>
+
+<div class="step">
+  <div class="when">February 2027</div>
+  <div class="what">Cappadocia cave hotel — book this first</div>
+  <p>Museum Hotel and Argos sell out earliest of anything in the region, and May is high season. Book on free-cancellation rates so you're reserving, not spending.</p>
+</div>
+
+<div class="step">
+  <div class="when">February – March 2027</div>
+  <div class="what">Istanbul hotel and the domestic flights</div>
+  <p>Soho House for five nights, plus IST → Kayseri and back on Turkish or Pegasus. Free cancellation throughout.</p>
+</div>
+
+<div class="step">
+  <div class="when">March – April 2027</div>
+  <div class="what">The balloon and the restaurants</div>
+  <p>Balloon booked <strong>direct</strong> with Butterfly, Royal or Voyager — not a reseller — and scheduled for your <em>first</em> Cappadocia morning so the second stays a weather backup. One-star restaurants book 1–2 months out, so Mikla, Neolokal or Nicole go in here. Hammam reservation too.</p>
+</div>
+
+<div class="step">
+  <div class="when">Two weeks out — May 2027</div>
+  <div class="what">Final prep</div>
+  <p>Timed entry tickets for Hagia Sophia and the Basilica Cistern. eSIM purchased (Airalo or Holafly, $10–20). STEP registration. Download BiTaksi, Uber, and Google Translate with Turkish saved offline. Notify banks of travel.</p>
+</div>
+
+<div class="step done">
+  <div class="when">Thursday 20 May 2027</div>
+  <div class="what">Wheels up</div>
+  <p>Evening departure. You sleep on the plane and land Friday afternoon.</p>
+</div>
+
+<h2 id="hotels">5 · Hotels</h2>
+
+<h3>Istanbul — 5 nights</h3>
+<table>
+  <thead><tr><th>Property</th><th>Why</th><th class="num">Room/night</th></tr></thead>
+  <tbody>
+    <tr class="hi"><td>Soho House Istanbul<span class="rec">Pick</span></td><td>Restored 19th-century palazzo in Beyoğlu. Rooftop over the Bosphorus, pool, Cowshed spa, gym with a boxing ring, screening room, bar downstairs. <strong>Walk home from the Karaköy bars.</strong></td><td class="num">$313–417</td></tr>
+    <tr><td>Çırağan Palace Kempinski</td><td>An actual restored imperial palace in Beşiktaş. Sea-view suites get an unbroken 180° panorama of the Asian shore. Grandest option, taxi from the nightlife.</td><td class="num">$550–800</td></tr>
+    <tr><td>Six Senses Kocataş Mansions</td><td>Ottoman mansions on the water in Sarıyer. Spectacular, but too far north for this trip.</td><td class="num">$571–698</td></tr>
+    <tr><td>The Stay Bosphorus / Georges Hotel Galata</td><td>Value tier that's still properly nice. Boutique, central, right in Karaköy and Galata.</td><td class="num">$190–240</td></tr>
+  </tbody>
+</table>
+
+<h3>Cappadocia — 2 nights</h3>
+<table>
+  <thead><tr><th>Property</th><th>Why</th><th class="num">Room/night</th></tr></thead>
+  <tbody>
+    <tr class="hi"><td>Kayakapi Premium Caves<span class="rec">Pick</span></td><td>Central Ürgüp. Rock-cut rooms and private mansions from 33 to 253 m², panoramic valley views.</td><td class="num">€300–450</td></tr>
+    <tr><td>Argos in Cappadocia</td><td>A restored monastery over an entire hillside in Uçhisar — ancient dwellings and underground tunnels folded into the hotel. The best in the region.</td><td class="num">€400–600</td></tr>
+    <tr><td>Museum Hotel</td><td>Private terraces, panoramic views. Sells out earliest of anything in Cappadocia.</td><td class="num">€300–500</td></tr>
+    <tr><td>Sultan Cave Suites</td><td>The terrace from every Cappadocia photo. Great value, smaller rooms.</td><td class="num">€100–150</td></tr>
+  </tbody>
+</table>
+
+<h2 id="sites">6 · Historical Sites &amp; What They Cost</h2>
+
+<div class="card warn">
+<p style="margin:0"><strong>Museum entry in Istanbul is expensive and got more so.</strong> These are April 2026 official prices and the Ministry of Culture adjusts them through the year — reconfirm when you book. The big three alone run about <strong>€118 (~$137) per person</strong>.</p>
+</div>
+
+<table>
+  <thead><tr><th>Site</th><th>What it is</th><th class="num">Entry</th></tr></thead>
+  <tbody>
+    <tr><td>Hagia Sophia</td><td>Built 537. Cathedral, then mosque, then museum, now mosque again. Main worship floor plus upper gallery. <strong>Book the timed entry online.</strong></td><td class="num">€25</td></tr>
+    <tr><td>Topkapı Palace</td><td>Where the Ottoman sultans lived for 400 years. Price includes the Harem, which is the better half.</td><td class="num">€55</td></tr>
+    <tr><td>Basilica Cistern</td><td>Underground Roman water chamber, 336 columns, two resting on carved Medusa heads. Higher price for the night visit.</td><td class="num">€38</td></tr>
+    <tr><td>Blue Mosque</td><td>Working mosque. Free. Long pants, shoes off, avoid Friday midday.</td><td class="num">Free</td></tr>
+    <tr><td>Süleymaniye Mosque</td><td>Mimar Sinan's masterpiece. Better architecture and view than the Blue Mosque, a fraction of the crowd.</td><td class="num">Free</td></tr>
+    <tr><td>Grand Bazaar</td><td>4,000 shops, trading since 1461. Haggle from 40% of the ask.</td><td class="num">Free</td></tr>
+    <tr><td>Spice Bazaar</td><td>Smaller, denser, better for anything you're actually taking home.</td><td class="num">Free</td></tr>
+    <tr><td>Balat &amp; Fener</td><td>Painted Ottoman houses on the Golden Horn. The Ecumenical Patriarchate — seat of 300 million Orthodox Christians. The Iron Church, built from prefabricated cast iron shipped from Vienna in 1898. St. Mary of the Mongols, the only Byzantine church here never converted to a mosque.</td><td class="num">Free</td></tr>
+    <tr><td>Galata Tower</td><td>Genoese, 1348. The classic view back over the Old City.</td><td class="num">~€30</td></tr>
+    <tr><td>Princes' Islands</td><td>Ferry day trip. Büyükada has no cars, wooden mansions, pine forest. Optional slow day.</td><td class="num">Ferry only</td></tr>
+  </tbody>
+</table>
+
+<div class="card note">
+<p style="margin:0"><strong>Skip the Istanbul Museum Pass.</strong> It costs €105 for 13 sites over five days and it covers Topkapı and the Harem — but it does <strong>not</strong> cover Hagia Sophia's main floor, the Basilica Cistern, or Dolmabahçe. On this itinerary you'd pay €105 plus €63 for the two it excludes, versus €118 buying all three individually. It only wins if you add three or more extra museums like Chora Church and the Archaeological Museums.</p>
+</div>
+
+<h2 id="food">7 · Michelin &amp; Food</h2>
+
+<p><strong>Istanbul holds 10 Michelin-starred restaurants in the 2026 guide</strong>, part of 17 across Türkiye, plus 39 Bib Gourmand venues — Michelin's high-quality-for-the-money list.</p>
+
+<h4>Two stars</h4>
+<div class="pick"><div class="nm">TURK Fatih Tutak<small>Şişli · book 6+ months</small></div><p>Türkiye's only two-star. Two tasting menus, intimate room, choreographed service. The most serious Turkish fine dining anywhere in the world. <strong>Budget $150–200 a head</strong> — published lira prices move fast with inflation, so confirm at booking. <strong>Reserve in November 2026</strong> for a May trip.</p></div>
+
+<h4>One stars in Istanbul — book 1–2 months out</h4>
+<div class="pick"><div class="nm">Mikla<small>Pera · rooftop</small></div><p>Turkish-Scandinavian, ingredients from across Anatolia, named after the old Viking word for Istanbul. Open since 2005 and still the city's favorite. Roughly $70–95.</p></div>
+<div class="pick"><div class="nm">Neolokal<small>Karaköy · Star + Green Star</small></div><p>Chef Maksut Aşkar. Modern technique on traditional Anatolian cooking, in the Salt Galata building over the Golden Horn. Holds a Green Star for sustainability too.</p></div>
+<div class="pick"><div class="nm">Nicole<small>Beyoğlu</small></div><p>Top floor of the Soeurs Garde-Malades apartment building, standing since 1901. Small, precise, one of the best rooms in the city.</p></div>
+<div class="pick"><div class="nm">Araka<small>Yeniköy</small></div><p>Chef Pınar Taşdemir, in a standalone house on a quiet Yeniköy street. Further out and worth the taxi.</p></div>
+<div class="pick"><div class="nm">Arkestra · Sankai by Nagaya · Casa Lavanda<small>One star each</small></div><p>The rest of the Istanbul one-star field. Sankai is Japanese, Arkestra is contemporary, Casa Lavanda is a country-house setting.</p></div>
+<div class="pick"><div class="nm">Şehzade Erzincanlı<br>Rumelihisarı İskele<small>New for 2026</small></div><p>Both promoted from Bib Gourmand to one star in the 2026 guide. Newer, easier to book than the established names.</p></div>
+
+<h4>The non-Michelin meals that matter just as much</h4>
+<div class="pick"><div class="nm">Zübeyir Ocakbaşı<small>Beyoğlu · ~$20</small></div><p>You sit around an open coal pit and the cook grills in front of you. Lamb ribs, adana, liver skewers. Do this twice.</p></div>
+<div class="pick"><div class="nm">Asmalı Cavit<small>Beyoğlu · meyhane</small></div><p>Rakı, endless meze, live saz, and a table that gets louder for four hours. The most Turkish night available.</p></div>
+<div class="pick"><div class="nm">Çiya Sofrası<small>Kadıköy</small></div><p>Regional Anatolian food you won't find on the European side. The chef is half anthropologist. Cheap and essential.</p></div>
+<div class="pick"><div class="nm">Karaköy Lokantası<small>Karaköy</small></div><p>Tiled room, classic Turkish, mid-priced, never wrong. Good first-night landing.</p></div>
+<div class="pick"><div class="nm">Tatbak · Yanyalı Fehmi<small>Bib Gourmand 2026</small></div><p>Michelin's value picks. Pide, kebab, lahmacun and classic lokanta home cooking, both cheap.</p></div>
+<div class="pick"><div class="nm">Turkish breakfast<small>$12–20 · clear two hours</small></div><p>A proper <em>serpme kahvaltı</em> arrives as 30–40 small plates — five cheeses, olives, honey with clotted cream, eggs with sucuk, jams, bread, endless tea. Do it on the last Istanbul morning.</p></div>
+
+<h2 id="night">8 · Nightlife</h2>
+
+<div class="card night">
+<h4>How the week runs</h4>
+<p><strong>Fri 21</strong> — arrival. Easy. Karaköy dinner, Soho House roof, bed by one.<br>
+<strong>Sat 22</strong> — the big one. Michelin dinner, then Ortaköy waterfront.<br>
+<strong>Sun 23</strong> — Kadıköy. Ferry over, Çiya, Barlar Sokağı with locals, ferry back at 1am.<br>
+<strong>Mon 24 / Tue 25</strong> — Cappadocia. Terrace drinks, early nights, 4:30am balloon call.<br>
+<strong>Wed 26</strong> — back in the city. Rooftops.<br>
+<strong>Thu 27</strong> — last night. Ocakbaşı feast, Karaköy crawl, no alarm.</p>
+<p style="margin-bottom:0"><strong>Local rhythm:</strong> clubs don't get going until after midnight. Cover charges usually kick in after 11pm. Eat late, arrive later.</p>
+</div>
+
+<h4>Clubs</h4>
+<div class="pick"><div class="nm">Sortie / Reina<small>Ortaköy waterfront</small></div><p>Bottle service on the Bosphorus under the bridge. Your Saturday. <strong>Dress code enforced on men</strong> — collared shirt, real shoes, no exceptions.</p></div>
+<div class="pick"><div class="nm">Kastel<small>Beyoğlu</small></div><p>Rooftop club with local and international DJs and Bosphorus views. Best of both formats.</p></div>
+<div class="pick"><div class="nm">RX<small>Taksim · techno</small></div><p>Funktion-One rig, big LED wall, proper floor. The serious electronic room in the city.</p></div>
+<div class="pick"><div class="nm">Vernon Beyoğlu<small>Techno &amp; house</small></div><p>Minimalist, contemporary, sharper crowd. Newer than the rest.</p></div>
+
+<h4>Rooftops &amp; bars</h4>
+<div class="pick"><div class="nm">360 Istanbul<small>Beyoğlu</small></div><p>Panoramic city views, restaurant that turns into a club as the night goes.</p></div>
+<div class="pick"><div class="nm">16 Roof<small>Swissôtel</small></div><p>Bosphorus skyline. Best sunset drink in the city.</p></div>
+<div class="pick"><div class="nm">Seven Hills<small>Karaköy</small></div><p>Blue Mosque, Hagia Sophia and the Bosphorus in one sightline.</p></div>
+<div class="pick"><div class="nm">Alexandra Cocktail Bar<small>Galata</small></div><p>Serious cocktails, small room, walkable from the hotel.</p></div>
+<div class="pick"><div class="nm">Nardis Jazz Club<small>Galata</small></div><p>Live jazz. The slow night when someone needs one.</p></div>
+<div class="pick"><div class="nm">Barlar Sokağı<small>Kadıköy · Asian side</small></div><p>An entire street of bars. Cheapest drinks, best crowd, zero tourists. Don't skip it.</p></div>
+
+<div class="card warn">
+<p style="margin:0"><strong>The one rule that matters most.</strong> Never follow a stranger to a bar. The Taksim scam runs specifically on groups of foreign men — a friendly English speaker offers to show you a great place, drinks appear, women join the table, and the bill lands at several thousand dollars with the door blocked. Pick your own venues from this list. If a room feels wrong, leave before you order. <strong>Emergency number in Türkiye: 112.</strong></p>
+</div>
+
+<h2 id="capp">9 · Cappadocia</h2>
+
+<h4>The balloon</h4>
+<p>Sunrise launch, hundreds of balloons over eroded volcanic spires. <strong>$180–250 each</strong>, booked direct with Butterfly Balloons, Royal Balloon or Voyager — skip resellers. Pickup 4:30am. <strong>Roughly 90% of May mornings fly.</strong> Schedule it your first morning so the second stays a backup.</p>
+
+<h4>Everything else</h4>
+<div class="pick"><div class="nm">Göreme Open-Air Museum<small>UNESCO</small></div><p>Rock-cut Byzantine churches with original frescoes, painted by early Christian communities living in the stone.</p></div>
+<div class="pick"><div class="nm">Derinkuyu underground city<small>Or Kaymaklı</small></div><p>Eight levels carved into volcanic rock — stables, chapels, wineries, ventilation shafts. Sheltered 20,000 people from invading armies.</p></div>
+<div class="pick"><div class="nm">ATVs at golden hour<small>~$45</small></div><p>Love Valley and Rose Valley on quads as the light drops. Wildflowers everywhere in May.</p></div>
+<div class="pick"><div class="nm">Uçhisar Castle &amp; Pigeon Valley<small>Half day</small></div><p>Rock fortress with the widest view in the region, then walk down through the valley to Göreme.</p></div>
+<div class="pick"><div class="nm">Avanos pottery<small>On the Kızılırmak</small></div><p>Red clay thrown on foot-powered wheels since the Hittites. Make one badly and take it home.</p></div>
+<div class="pick"><div class="nm">Rose Valley hike<small>Free</small></div><p>Also the best ground-level vantage point for watching the balloons if yours gets weathered out.</p></div>
+
+<h2 id="move">10 · Getting Around</h2>
+<ul>
+  <li><strong>From the airport:</strong> the M11 metro opened in 2024 — ride to Kağıthane, transfer to M2 for Taksim. 50–60 min, about ₺35. The Havaist bus is ₺180 and sits in traffic. On arrival day with bags, a private van transfer (~$40 for four) is worth it.</li>
+  <li><strong>Istanbulkart:</strong> buy one each on day one from any Biletmatik machine. ₺165 for the card, load balance separately, ₺42 a ride with discounted transfers inside two hours. Covers metro, tram, bus, ferry, funicular and Marmaray.</li>
+  <li><strong>The T1 tram</strong> runs directly past Hagia Sophia, the Blue Mosque, the Grand Bazaar and the Spice Bazaar. You'll use it daily.</li>
+  <li><strong>Funiculars beat hills.</strong> The Tünel — the second-oldest underground railway in the world, running since 1875 — hauls you from near Galata Bridge to the bottom of İstiklal. Kabataş–Taksim connects the tram to Taksim Square.</li>
+  <li><strong>Ferries, ~₺49.</strong> Twenty minutes between continents with tea on deck. Do it once in daylight and once at night.</li>
+  <li><strong>Taxis: BiTaksi or Uber only.</strong> Uber in Istanbul dispatches licensed yellow cabs. Never hail off the street.</li>
+  <li><strong>Traffic warning:</strong> Istanbul has among the worst road congestion of any major city — drivers lose 53% extra time. A 30-minute drive becomes an hour in evening rush. Stay on rails and boats.</li>
+  <li><strong>Cappadocia:</strong> fly IST → Kayseri (ASR) or Nevşehir (NAV), 90 min, $40–70. Hotels arrange transfers. No real public transport on the ground — book activities with pickup or hire a driver.</li>
+</ul>
+
+<h2 id="money">11 · The Budget</h2>
+
+<table>
+  <thead><tr><th>Line item</th><th class="num">Good</th><th class="num">Nice</th><th class="num">All out</th></tr></thead>
+  <tbody>
+    <tr><td>Flights JFK ⇄ IST</td><td class="num">$850</td><td class="num">$850</td><td class="num">$850</td></tr>
+    <tr><td>Domestic IST ⇄ Kayseri</td><td class="num">$90</td><td class="num">$90</td><td class="num">$90</td></tr>
+    <tr><td>Istanbul, 5 nights</td><td class="num">$550</td><td class="num">$825</td><td class="num">$1,500</td></tr>
+    <tr><td>Cappadocia, 2 nights</td><td class="num">$300</td><td class="num">$400</td><td class="num">$550</td></tr>
+    <tr><td>Food &amp; drink, 7 days</td><td class="num">$665</td><td class="num">$770</td><td class="num">$980</td></tr>
+    <tr><td>Site entries</td><td class="num">$140</td><td class="num">$175</td><td class="num">$205</td></tr>
+    <tr><td>Balloon</td><td class="num">$190</td><td class="num">$220</td><td class="num">$250</td></tr>
+    <tr><td>Bosphorus boat · hammam · ATVs</td><td class="num">$180</td><td class="num">$195</td><td class="num">$215</td></tr>
+    <tr><td>Ground transport</td><td class="num">$130</td><td class="num">$160</td><td class="num">$180</td></tr>
+    <tr><td>Buffer</td><td class="num">$250</td><td class="num">$280</td><td class="num">$320</td></tr>
+    <tr class="total"><td>Per person, all in</td><td class="num">$3,345</td><td class="num">$3,965</td><td class="num">$5,140</td></tr>
+  </tbody>
+</table>
+
+<div class="card note">
+<p style="margin:0"><strong>Quote the group $4,200.</strong> These are August 2026 prices and you're booking for May 2027 — nine months of drift, in a higher season. Pad it now and let it come in under. Add roughly $200 per person if you're doing the two-star.</p>
+</div>
+
+<h4>Money on the ground</h4>
+<ul>
+  <li>Lira at roughly <strong>₺47.7 to the dollar.</strong></li>
+  <li>Withdraw from bank ATMs — Ziraat, İş Bankası, Garanti. Avoid standalone machines in tourist areas.</li>
+  <li><strong>Always decline "pay in USD"</strong> at ATMs and card terminals. Dynamic currency conversion is a 5–10% skim.</li>
+  <li>Cards work almost everywhere in Istanbul. Carry cash in Cappadocia.</li>
+  <li>Tipping: 5–10% at restaurants, round up taxis, $5–10 for hammam attendants.</li>
+  <li>eSIM: Airalo or Holafly, $10–20 for the trip. Don't buy a local physical SIM — Turkey registers device IMEIs.</li>
+</ul>
+
+<h2 id="pitch">12 · The Pitch</h2>
+
+<div class="quote">
+  <span class="lbl">Send this to the group</span>
+  <p><strong>TÜRKIYE — Thursday 20 to Friday 28 May 2027.</strong> Istanbul five nights, Cappadocia two. Soho House in the city, a cave hotel carved into rock in the valley. Two guys a room.</p>
+  <p><strong>About $4,200 each, everything included.</strong> Flights, hotels, every meal, every bar tab, a Michelin-starred dinner, a sunrise hot air balloon, a private boat on the Bosphorus, a Turkish bath built in 1580, ATVs through the valleys, and every site entry. There is no second bill.</p>
+  <p><strong>What you actually do:</strong> Hagia Sophia, standing since 537. Topkapı Palace, where the sultans lived for 400 years. An underground city eight levels deep. Clubs on the water in Ortaköy on Saturday. A bar street on the Asian side where nobody's a tourist. And a balloon at sunrise over a valley of volcanic spires.</p>
+  <p><strong>Six days of PTO.</strong> Ten hours nonstop, no connection, no visa. Land Friday afternoon and go out that night.</p>
+  <p style="margin-bottom:0"><strong>Nothing is due now.</strong> Two things this month: say yes to the dates, and check your passport is valid past 20 November 2027. Flights get booked in January. In or out.</p>
+</div>
+
+<footer>
+<p><strong>Verification notes</strong> — Prices in August 2026 dollars. Museum fees are April 2026 official rates and the Ministry of Culture adjusts them through the year. Dates checked against the 2027 calendar: 1 May 2027 is a Saturday, so Kurban Bayramı runs 15–19 May and 22 May is a Saturday. Confirm visa rules, the State Department advisory, and restaurant pricing directly before booking.</p>
+<p><strong>Sources</strong> — <a href="https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/turkey-travel-advisory.html">U.S. State Department Turkey Travel Advisory</a> · <a href="https://tr.usembassy.gov/travel-advisory-turkiye-april-2026/">U.S. Embassy Türkiye advisory, April 2026</a> · <a href="https://www.kurucuk.com.tr/post/what-is-illegal-in-turkey-criminal-lawyer-turkey">What is illegal in Türkiye — criminal law overview</a> · <a href="https://www.roafly.com/blog/turkey-tourist-bans-laws">Turkey tourist bans and laws 2026</a> · <a href="https://en.wikipedia.org/wiki/Law_on_crimes_committed_against_Atat%C3%BCrk">Law 5816 on crimes against Atatürk</a> · <a href="https://www.tripbase.com/drug-laws/turkey/alcohol/">Turkey alcohol laws and penalties 2026</a> · <a href="https://istanbuljoy.com/can-you-drink-alcohol-in-istanbul/">Drinking in Istanbul — venue vs retail hours</a> · <a href="https://drone-laws.com/drone-laws-in-turkey/">Turkey drone laws 2026</a> · <a href="https://guide.michelin.com/en/article/michelin-guide-ceremony/the-michelin-guide-turkiye-reveals-its-2026-restaurant-selection">MICHELIN Guide Türkiye 2026 selection</a> · <a href="https://eurovistatrips.com/which-istanbul-restaurants-are-michelin-starred-2026/">Istanbul Michelin-starred restaurants 2026</a> · <a href="https://atourguideinconstantinople.org/istanbul-museum-entrance-fees-2026/">Istanbul museum entrance fees 2026</a> · <a href="https://istanbultouristpass.com/blog/tips-guides/istanbul-museum-ticket-prices-2026-pass-savings">Museum Pass savings analysis</a> · <a href="https://istanbulitinerary.com/istanbul-istanbulkart-guide">Istanbulkart guide 2026</a> · <a href="https://www.tomtom.com/traffic-index/city/istanbul/">TomTom Traffic Index — Istanbul</a> · <a href="https://www.officeholidays.com/holidays/turkey/eid-al-adha">Kurban Bayramı 2027 dates</a> · <a href="https://theothertour.com/best-istanbul-nightclubs/">Istanbul nightclubs 2026</a> · <a href="https://www.bestcappadociaguide.com/guides/cave-hotels/best-hotels">Cappadocia cave hotels</a> · Above Cappadocia and BalloonScanner (May balloon fly rates) · Chasing the Donkey and Lonely Planet (May vs September)</p>
+</footer>
+
+</div>
+</body>
+</html>

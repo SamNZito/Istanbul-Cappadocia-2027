@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>May 2027 — Revised Plan</title>
+<style>
+  :root{
+    --ink:#14120f;--ink2:#4a423a;--muted:#7f7469;--line:#e3dcd2;--paper:#fbf8f4;--card:#fff;
+    --tr:#9c3b1f;--th:#1f6151;--jp:#7a2540;--kr:#2d4a7a;--gold:#8a6a1f;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;font-size:16px;line-height:1.58}
+  .wrap{max-width:940px;margin:0 auto;padding:48px 24px 90px}
+  header.top{border-bottom:3px solid var(--ink);padding-bottom:20px;margin-bottom:28px}
+  .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--tr);font-weight:800}
+  h1{font-size:45px;line-height:1.04;margin:11px 0 8px;letter-spacing:-.03em;font-weight:800}
+  .sub{color:var(--ink2);font-size:17.5px;max-width:61ch;margin:0}
+  .meta{font-size:12px;color:var(--muted);margin-top:13px}
+  h2{font-size:13px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--tr);
+    margin:52px 0 4px;padding-bottom:7px;border-bottom:1px solid var(--line)}
+  h3{font-size:22px;margin:26px 0 4px;letter-spacing:-.015em;font-weight:800}
+  p{margin:9px 0}ul{margin:8px 0 8px 19px;padding:0}li{margin:5px 0}
+
+  .cal{margin:22px 0 8px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 18px 16px}
+  .calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+  .dow{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    font-weight:800;text-align:center;padding-bottom:5px}
+  .d{aspect-ratio:1/.82;border-radius:6px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;font-size:13px;font-weight:700;line-height:1.2}
+  .d small{font-size:8.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+    display:block;margin-top:1px;opacity:.9}
+  .d-off{background:#f3f1ec;color:#b3aea4}
+  .d-ok{background:#dcece6;color:#134338}
+  .d-gw{background:#f6ddd4;color:#8a3418}
+  .d-kb{background:#f7e6c9;color:#6b4a0a}
+  .d-best{background:#1f6151;color:#fff}
+  .d-minor{background:#e6ecf5;color:#28405e}
+  .key{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;font-size:12px;color:var(--ink2)}
+  .key span{display:flex;align-items:center;gap:6px}
+  .sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+  th{text-align:left;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    border-bottom:2px solid var(--ink);padding:9px 9px 9px 0;font-weight:800}
+  td{padding:9px 9px 9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+  td:first-child{font-weight:700}
+  td.c,th.c{text-align:center}
+  td.num,th.num{text-align:right;padding-right:0;font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr.hi td{background:#f1ece2}
+  tr.dead td{color:var(--muted)}
+  .pill{display:inline-block;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+    font-weight:800;padding:3px 7px;border-radius:3px;color:#fff}
+  .p-go{background:#1f6151}.p-no{background:#9c3b1f}.p-mid{background:#8a6a1f}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:18px 22px;margin:16px 0}
+  .card.big{border-left:4px solid var(--th)}
+  .card.warn{border-left:4px solid var(--tr);background:#fdf6f3}
+  .card.note{border-left:4px solid var(--gold);background:#fcf9f0}
+  .card>:last-child{margin-bottom:0}.card h3{margin-top:0}
+
+  .pay{border-left:2px solid var(--line);padding:2px 0 2px 20px;margin:20px 0;position:relative}
+  .pay::before{content:"";position:absolute;left:-7px;top:9px;width:12px;height:12px;border-radius:50%;
+    background:var(--tr);border:2px solid var(--paper)}
+  .pay .when{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--tr)}
+  .pay .what{font-size:18px;font-weight:800;margin:1px 0 3px}
+
+  .quote{background:#14120f;color:#f4efe7;border-radius:12px;padding:24px 26px;margin:24px 0;line-height:1.66}
+  .quote strong{color:#fff}
+  .quote .lbl{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#a09585;
+    font-weight:800;display:block;margin-bottom:10px}
+  footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+  @media(max-width:760px){h1{font-size:31px}.wrap{padding:32px 16px 60px}table{font-size:12.5px}
+    .d{font-size:11px}.d small{font-size:7px}}
+  @media print{body{background:#fff}.card,.quote,.cal{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">Reset · May 2027 · Supersedes All October Planning</div>
+  <h1>May Changes Three Things</h1>
+  <p class="sub">Thailand drops out entirely. Two holidays create blackout windows you'd otherwise book straight into. And nine months of lead time turns the whole booking problem inside out — in your favor.</p>
+  <div class="meta">Revised 8 August 2026 · All prior October dates and deadlines are void · Pricing is in Aug 2026 dollars, see drift note</div>
+</header>
+
+<h2>The May 2027 Calendar</h2>
+
+<div class="cal">
+  <div class="calgrid">
+    <div class="dow">Sun</div><div class="dow">Mon</div><div class="dow">Tue</div><div class="dow">Wed</div><div class="dow">Thu</div><div class="dow">Fri</div><div class="dow">Sat</div>
+    <div class="d d-off"></div><div class="d d-off"></div><div class="d d-off"></div><div class="d d-off"></div><div class="d d-off"></div><div class="d d-off"></div><div class="d d-gw">1</div>
+    <div class="d d-gw">2</div><div class="d d-gw">3</div><div class="d d-gw">4</div><div class="d d-gw">5<small>GW ends</small></div><div class="d d-ok">6</div><div class="d d-ok">7</div><div class="d d-ok">8</div>
+    <div class="d d-ok">9</div><div class="d d-ok">10</div><div class="d d-ok">11</div><div class="d d-ok">12</div><div class="d d-minor">13<small>Buddha</small></div><div class="d d-ok">14</div><div class="d d-kb">15<small>Arife</small></div>
+    <div class="d d-kb">16<small>Bayram</small></div><div class="d d-kb">17</div><div class="d d-kb">18</div><div class="d d-kb">19<small>ends</small></div><div class="d d-best">20</div><div class="d d-best">21</div><div class="d d-best">22</div>
+    <div class="d d-best">23</div><div class="d d-best">24</div><div class="d d-best">25</div><div class="d d-best">26</div><div class="d d-best">27</div><div class="d d-best">28</div><div class="d d-best">29</div>
+    <div class="d d-best">30</div><div class="d d-best">31</div><div class="d d-off"></div><div class="d d-off"></div><div class="d d-off"></div><div class="d d-off"></div><div class="d d-off"></div>
+  </div>
+  <div class="key">
+    <span><i class="sw" style="background:#1f6151"></i> Clean for all three countries</span>
+    <span><i class="sw" style="background:#dcece6"></i> Fine — Japan and Korea</span>
+    <span><i class="sw" style="background:#f6ddd4"></i> Japan Golden Week</span>
+    <span><i class="sw" style="background:#f7e6c9"></i> Turkey Kurban Bayramı</span>
+    <span><i class="sw" style="background:#e6ecf5"></i> Buddha's Birthday, Korea</span>
+  </div>
+</div>
+
+<p style="text-align:center;font-size:17px;font-weight:700;margin:18px 0 0">
+May 20–31, 2027 is the only stretch that's clean for every country on the list.</p>
+
+<h2>The Two Landmines</h2>
+
+<div class="card warn">
+<h3>Japan — Golden Week, 29 April to 5 May 2027</h3>
+<p>Four national holidays plus a bridge day on Friday 30 April gives most Japanese workers <strong>seven straight days off</strong>. The entire country travels at once. Trains, buses and flights sell out, and the Tokyo–Kyoto–Osaka corridor is the worst-hit route in the country. Outbound rush builds 28–30 April, return wave hits 4–5 May, most people back at work on the 6th.</p>
+<p style="margin-bottom:0">Hotel rates spike and availability collapses. <strong>Do not book Japan before 7 May.</strong> This is the single most avoidable mistake on the calendar.</p>
+</div>
+
+<div class="card warn">
+<h3>Turkey — Kurban Bayramı, 15 to 19 May 2027</h3>
+<p>Eid al-Adha, the most important holiday in the Muslim calendar. <em>Arife</em> (the eve) falls Saturday 15 May, the first day is Sunday 16 May, and it runs through the evening of Wednesday 19 May.</p>
+<p>What actually closes: <strong>the Grand Bazaar and the Spice Bazaar shut entirely.</strong> Banks and post offices close. ATMs frequently run dry toward the end of the holiday. Domestic roads and flights are chaos on the first and last days as the whole country either goes home or heads for the coast.</p>
+<p style="margin-bottom:0">What stays open: most museums and historical sites, plus shops and supermarkets. So Hagia Sophia is fine — the bazaars are not. <strong>Book either 1–13 May or 20–31 May.</strong></p>
+</div>
+
+<div class="card note">
+<p style="margin:0"><strong>Minor, not disqualifying:</strong> Korea has Children's Day on 5 May and Buddha's Birthday on Thursday <strong>13 May 2027</strong>. Both are single days. Palaces and temples get busy; nothing shuts down. Plan around them if it's easy, ignore them if it isn't.</p>
+</div>
+
+<h2>How May Re-Ranks The Four</h2>
+
+<table>
+  <thead><tr><th>Country</th><th class="c">May verdict</th><th>Detail</th><th class="num">Cost</th></tr></thead>
+  <tbody>
+    <tr class="hi"><td>Turkey</td><td class="c"><span class="pill p-go">Peak</span></td><td>One of its two best months. Istanbul 7–23°C, Cappadocia 18–24°C days. <strong>Balloons fly roughly 90% of mornings — among the highest fly rates of the year.</strong> Crowds 20–30% below the July–August peak, hotels 10–15% cheaper. Wildflowers in the valleys.</td><td class="num">$3,290</td></tr>
+    <tr class="hi"><td>Japan</td><td class="c"><span class="pill p-go">Excellent</span></td><td>After Golden Week, May is arguably the best month of the year — cherry blossom crowds gone, rainy season not until June, mild and clear throughout.</td><td class="num">$3,525</td></tr>
+    <tr class="hi"><td>South Korea</td><td class="c"><span class="pill p-go">Excellent</span></td><td>Dry, warm, low humidity, clear skies. Seoul runs 13–24°C. Cleanest calendar of the three — no blackout window at all.</td><td class="num">$2,945</td></tr>
+    <tr class="dead"><td>Thailand</td><td class="c"><span class="pill p-no">Out</span></td><td>Its worst window. 29–35°C and the transition from hot season into the wet. Afternoon thunderstorms build through the month. Not dangerous, just hot and unreliable — and you'd be paying 20+ hours of flight time for it.</td><td class="num">—</td></tr>
+  </tbody>
+</table>
+
+<h3>Which means it's a three-way now</h3>
+<p>And your own scoring already settled it. On the five categories you named — drinking, clubs, monuments, historical sites, food — <strong>Turkey took it at 43/50</strong>, Japan 42, Korea 41. Turkey was the only one with no weak category. Now add that May is Turkey's peak month, that balloons fly nine mornings in ten, and that crowds and hotel rates are both meaningfully below summer.</p>
+
+<div class="quote">
+  <span class="lbl">The pick</span>
+  <p><strong>Turkey. 20–31 May 2027. Nine days, around $3,290 a head.</strong></p>
+  <p style="margin-bottom:0">It won the balanced scorecard, May is its strongest season, the Bayram window closes cleanly on the 19th, and it's still the shortest trip in days off work — nine days door to door, ten hours in the air, a seven-hour shift you'll shake off in a day. <strong>Korea stays the value play at $2,945 if the group wants to spend less and drink more.</strong> Japan is one point behind on the scorecard and wins if food is the deciding vote.</p>
+</div>
+
+<h2>The Good News Nobody Mentioned</h2>
+
+<div class="card big">
+<p><strong>Nine months of lead time is worth more than the date change costs you.</strong> The October plan had you scrambling — eight weeks out, fares already climbing, a hard 22 August deadline just to keep the option alive.</p>
+<p style="margin-bottom:0">Now you get the whole thing in the right order: lock dates while everyone's calendars are still empty, watch fares for months instead of panic-buying, and book the Cappadocia cave hotels that always sell out first. It also means <strong>the 13-day Japan + Korea combo at $3,955 is genuinely on the table</strong> — nobody has to fight for PTO on eight weeks' notice when they can request it a year out.</p>
+</div>
+
+<h2>Revised Timeline</h2>
+
+<div class="pay">
+  <div class="when">Now — by October 2026</div>
+  <div class="what">Lock the dates. Nothing else.</div>
+  <p style="margin:4px 0 0">Get all four to commit to a specific window — <strong>20–31 May 2027</strong> is the recommendation. No money changes hands. This is the only thing that matters for the next two months, and it's the step that historically kills group trips.</p>
+</div>
+<div class="pay">
+  <div class="when">October 2026 — January 2027</div>
+  <div class="what">Set fare alerts and watch.</div>
+  <p style="margin:4px 0 0">Google Flights alerts on JFK/EWR → IST. You have months to learn what a good fare looks like on that route instead of guessing. Everyone requests PTO in this window while it's easy to get approved.</p>
+</div>
+<div class="pay">
+  <div class="when">January — February 2027</div>
+  <div class="what">Book flights. 3–4 months out is the sweet spot.</div>
+  <p style="margin:4px 0 0">International economy generally prices best in this band. This is the real commitment point, and it lands with plenty of warning.</p>
+</div>
+<div class="pay">
+  <div class="when">February 2027</div>
+  <div class="what">Cappadocia cave hotel.</div>
+  <p style="margin:4px 0 0">The ones with valley-facing terraces sell out first, and May is high season. Book on free cancellation.</p>
+</div>
+<div class="pay">
+  <div class="when">March 2027</div>
+  <div class="what">Istanbul hotel and domestic flights.</div>
+  <p style="margin:4px 0 0">Free-cancellation rates throughout. You're reserving, not spending.</p>
+</div>
+<div class="pay">
+  <div class="when">April 2027</div>
+  <div class="what">Balloon, hammam, the one big dinner.</div>
+  <p style="margin:4px 0 0">Book the balloon direct with the operator, scheduled for your <em>first</em> Cappadocia morning so the second is a weather backup. Even at a 90% fly rate, leave the buffer.</p>
+</div>
+
+<div class="card note">
+<h3>Price drift — read this before quoting the number to anyone</h3>
+<p style="margin-bottom:0">Every figure in every document I've built for you is in <strong>August 2026 dollars</strong>. You're now planning nine months out. Airfare is the volatile line and May is higher season than October on the Istanbul route. <strong>Add a 5–8% contingency</strong> when you pitch this to the group — call it <strong>$3,450–3,550 per person</strong> rather than $3,290, and let it come in under. Nobody has ever been annoyed by a trip costing less than quoted.</p>
+</div>
+
+<footer>
+<p><strong>Sources</strong> — Holiday dates verified against the 2027 calendar: 1 May 2027 is a Saturday, which confirms Golden Week 29 Apr (Thu) – 5 May (Wed), Kurban Bayramı arife 15 May (Sat) through 19 May (Wed), and Buddha's Birthday 13 May (Thu). Costs carried forward from the four-way comparison in Aug 2026 dollars.</p>
+<p><a href="https://selfguidejapan.com/blog/japan-golden-week-2027">BluePlanet — Golden Week 2027 dates and crowd timing</a> · <a href="https://travel.rakuten.com/contents/usa/en-us/guide/japanese-national-holidays-golden-week/">Rakuten Travel — Japanese national holidays 2026/2027</a> · <a href="https://www.officeholidays.com/holidays/turkey/eid-al-adha">Office Holidays — Kurban Bayramı in Türkiye 2027</a> · <a href="https://turkeytravelplanner.com/religion/kurban_bayrami_dates.html">Turkey Travel Planner — Kurban Bayramı dates and closures</a> · <a href="https://publicholidays.co.kr/buddhas-birthday/">Public Holidays Korea — Buddha's Birthday 2027</a> · Magnificent Travel and Turkey Family Tours (Cappadocia May weather and balloon fly rates) · Rough Guides and Agate Travel (Thailand May weather) · Rough Guides and kimkim (South Korea May weather)</p>
+</footer>
+
+</div>
+</body>
+</html>
