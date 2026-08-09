@@ -17,6 +17,7 @@ GitHub Pages needs the landing page to be called `index.html`, and the links ins
 | `TURKEY-FINAL-PLAN.html` | `itinerary.html` |
 | `TURKEY-THE-BOOK.html` | `guide.html` |
 | `FOUR-WAY-COMPARISON.html` | `compare.html` |
+| `AIRPORTS-AND-BUDGET-TIERS.html` | `budget.html` |
 
 Case matters. All lowercase, exactly as written.
 
@@ -35,7 +36,7 @@ Case matters. All lowercase, exactly as written.
 ## Step 3 — Upload the files
 
 1. On the new empty repo page, click **uploading an existing file**.
-2. Drag all five renamed HTML files in at once.
+2. Drag all six renamed HTML files in at once.
 3. Click **Commit changes**.
 
 ---
