@@ -1,97 +1,88 @@
-# Türkiye 2027 — How To Put This Online
+# Türkiye 2027 — Site
 
-A static website. No build step, no dependencies, no code. Just HTML files that GitHub will serve for free at a public URL you can text to the group.
+**One page.** `index.html` is the whole thing: interactive checklist, cost, flights, hotels, day-by-day, sights, food, nightlife, Cappadocia, transport, entry and laws. Sticky nav at the top jumps between sections.
 
-**Time to deploy: about five minutes.**
+Every number now lives in exactly one place. That's what fixes the inconsistency — before, the same figure existed in four files and only some got updated.
 
 ---
 
-## Step 1 — Rename five files
+## The checklist — how it works
 
-GitHub Pages needs the landing page to be called `index.html`, and the links inside it point to specific filenames. Put these five files in one folder on your desktop and rename them exactly like this:
+**17 dated tasks** from "decide if you're going" (30 August 2026) through "wheels up" (20 May 2027).
 
-| Current filename | Rename to |
+- **Add people** with the box at the top. Each person is marked **In / Maybe / Out**.
+- **Per-person tasks** (passport, PTO, flights, insurance) show a chip for every person who isn't marked Out. Tap a chip to tick that person off.
+- **Group tasks** (book the hotel, book the balloon) have a single Done button.
+- **Anyone marked Out is excluded** from the per-person counts automatically.
+- Progress bar and a "next up" line track where the group actually is.
+
+### Important: how sharing works
+
+Ticks are saved in **your browser only** — a static site has no database. To share:
+
+1. Click **Share / sync**
+2. **Copy code** → paste it into the group chat
+3. Anyone else pastes it into their box and clicks **Load pasted code**
+
+There's also **Copy summary for group chat**, which produces a clean who's-in / what's-next message.
+
+**Simplest approach:** one person is the keeper. They hold the real state and post the summary when it changes.
+
+**If you want real multi-user sync**, that needs a backend — Firebase or Supabase, both free at this size. Say the word and I'll wire it up.
+
+---
+
+## Files
+
+| File | What |
 |---|---|
-| `index.html` | `index.html` *(already correct — don't touch it)* |
-| `TURKEY-MASTER-BRIEF.html` | `brief.html` |
-| `TURKEY-FINAL-PLAN.html` | `itinerary.html` |
-| `TURKEY-THE-BOOK.html` | `guide.html` |
-| `FOUR-WAY-COMPARISON.html` | `compare.html` |
-| `AIRPORTS-AND-BUDGET-TIERS.html` | `budget.html` |
-
-Case matters. All lowercase, exactly as written.
+| `index.html` | **The site.** The only file that matters. |
+| `brief.html` `itinerary.html` `guide.html` `budget.html` `compare.html` | Redirects to `index.html`, so old links you already sent still work |
 
 ---
 
-## Step 2 — Make the repository
+## Delete these — no longer used
 
-1. Go to **github.com** and sign in. Make a free account if you don't have one.
-2. Click the **+** in the top right → **New repository**.
-3. Name it something like `turkey-2027`.
-4. Set it to **Public**. *(GitHub Pages requires public on free accounts.)*
-5. Leave every checkbox unticked. Click **Create repository**.
+```
+four-guys-trip-plan.html
+thailand-14-day-and-headtohead.html
+MASTER-trip-plan.html
+COST-SHEET-october.html
+WHAT-YOU-ACTUALLY-DO.html
+THE-PITCH.html
+MAY-2027-RESET.html
+AOE4-FACTIONS-AND-DESTINATIONS.html
+CIV-HOMELANDS-AS-DESTINATIONS.html
+```
+
+Once you're sure nobody's using the old links, the five redirect files can go too.
 
 ---
 
-## Step 3 — Upload the files
+## Deploy / update
 
-1. On the new empty repo page, click **uploading an existing file**.
-2. Drag all six renamed HTML files in at once.
-3. Click **Commit changes**.
+**Already live:** upload `index.html`, replace the old one, commit. Live in under a minute.
 
----
-
-## Step 4 — Turn on Pages
-
-1. In the repo, click **Settings** (top bar).
-2. Click **Pages** in the left sidebar.
-3. Under **Source**, choose **Deploy from a branch**.
-4. Branch: **main**. Folder: **/ (root)**. Click **Save**.
-5. Wait one to two minutes, then refresh the page.
-
-Your URL appears at the top:
+**First time:** github.com → **+** → **New repository** → `turkey-2027` → **Public** → Create. Click **uploading an existing file**, drag `index.html` and the five redirects in, **Commit changes**. Then **Settings** → **Pages** → Source **Deploy from a branch** → branch **main**, folder **/ (root)** → **Save**. URL appears in a minute:
 
 ```
 https://YOUR-USERNAME.github.io/turkey-2027/
 ```
 
-That's the link you send to the group. It works on phones.
+**Editing later:** open the repo → click `index.html` → pencil icon → Ctrl+F to the text → type over it → **Commit changes**.
+
+To add or change a checklist task, find the `TASKS` array near the bottom of `index.html`. Each entry is one line:
+
+```js
+{id:'unique', by:'2027-01-31', t:'Task name', per:true, n:'Description.'}
+```
+
+`per:true` = every person gets their own tick. `per:false` = one group checkbox.
 
 ---
 
-## How to update it later
+## Two notes
 
-Say a price changes or you lock in a hotel.
+**Public repo means public site.** Nothing here is sensitive — no passport numbers, no booking references. Keep it that way.
 
-1. Open the repo on github.com.
-2. Click the file you want to change — for example `brief.html`.
-3. Click the **pencil icon** (Edit this file).
-4. Use **Ctrl+F** / **Cmd+F** to find the text you want to change and type over it.
-5. Scroll down, click **Commit changes**.
-
-The live site updates in under a minute. No rebuild, no deploy step.
-
-**Easier option:** just tell me what changed and I'll regenerate the file. Then you re-upload it — GitHub asks if you want to replace the existing one, and you say yes.
-
----
-
-## Adding a new page later
-
-1. Upload the new HTML file to the repo.
-2. Edit `index.html` and copy one of the existing `<a class="doc ...">` blocks, changing the `href`, the title, and the description.
-
----
-
-## Two things worth knowing
-
-**Anyone with the link can see it.** A public GitHub repo is public. Nothing here is sensitive — no passport numbers, no card details, no booking references — so it's fine. **Keep it that way.** Don't put confirmation numbers or personal details in these files.
-
-**You can add a custom domain.** If you want something like `turkey2027.com` instead of the github.io URL, buy the domain (~$12/year) and point it at the repo under Settings → Pages → Custom domain.
-
----
-
-## If GitHub feels like too much
-
-**Netlify Drop** is the lazy alternative: go to `app.netlify.com/drop`, drag the whole folder onto the page, and you get a live URL in about ten seconds with no account needed. The tradeoff is that updating means re-dragging the whole folder each time, and the URL is a random string unless you sign up.
-
-GitHub is the better call if you're going to be editing this over the next nine months. Netlify is the better call if you just want a link in the group chat tonight.
+**If you change a price, search the whole file for that number first.** The cost table, the tier cards, the top stats and the pitch block all have to agree.
